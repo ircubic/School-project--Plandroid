@@ -1,0 +1,21 @@
+MapPing (working title)
+
+* Interface
+
+The interface should have provisions for viewing events on a map, as well as a
+traditional list. It should also have provisions for a friend list, creation of
+events, and editing of a user profile.
+
+** Map View
+
+** List View
+
+** Friends List
+
+** Event creation
+
+** User profile
+
+* Social features
+
+* User settings
