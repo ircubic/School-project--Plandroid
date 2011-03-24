@@ -1,0 +1,136 @@
+\documentclass[]{report}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{hypcap}
+
+
+% Set up some colors
+\definecolor{gray92}{gray}{.92}
+\definecolor{gray75}{gray}{.75}
+\definecolor{gray45}{gray}{.45}
+
+% Set up some PDF options and reference coloration
+\hypersetup{
+    pdftitle={Mobile Applications - Designing an Event App}
+    pdfauthor={Daniel E. Bruce},     % author
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=red,          % color of internal links
+    citecolor=black,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=cyan           % color of external links
+}
+
+% listings settings
+\lstset{
+  breaklines=true,
+  framerule=0.5pt,
+  linewidth=\textwidth,
+  numbers=left,
+  showstringspaces=false
+}
+
+\lstdefinestyle{console}
+{
+  numbers=none,
+  basicstyle=\bf\ttfamily,
+  backgroundcolor=\color{gray92},
+  frame=lrtb,
+}
+
+\lstdefinestyle{java}
+{
+  keywordstyle=\color{Maroon}\bfseries\emph,
+  frame=lines,
+  basicstyle=\small\ttfamily,
+  commentstyle=\color{ForestGreen},
+  stringstyle=\color{Mulberry}
+}
+
+\lstset{language=Java,style=java}
+
+% Use "normal" paragraph separation
+\setlength{\parskip}{1.3ex plus 0.2ex minus 0.2ex}
+\setlength{\parindent}{0pt}
+
+%
+% Document begins here
+%
+\begin{document}
+\title{Mobile Applications - Designing an Event App}
+\author{Daniel E. Bruce}
+\date{\today}
+\maketitle
+
+\begin{abstract}
+  \begin{description}
+    \item[Background] \hfill \\
+      --
+    \item[Results] \hfill \\
+      --
+  \end{description}
+\end{abstract}
+
+\tableofcontents
+
+\chapter{Introduction}
+
+\section{Background}
+
+\section{Motivation}
+
+\section{Context (e.g. the course)}
+
+\section{Previous and related work}
+
+\chapter{Methods}
+
+\section{Discovery/Design/Evaluation}
+
+\section{Final evaluation criteria}
+
+\section{Frameworks}
+
+\section{Process - motivated progress}
+
+\chapter{Results}
+
+\section{Status of application / prototype}
+
+\section{Final evaluation results}
+
+\chapter{Discussion}
+
+\section{Success(es)}
+
+\section{Flaw(s)}
+
+\section{What did I learn}
+
+\section{What would I do different}
+
+\section{Next steps - future work}
+
+\section{References}
+
+\bibliography{report,neural-report}{}
+\bibliographystyle{plain}
+
+%Scientific references
+%Previous work
+%Web sites / projects / products
+
+\section{Conclusion}
+
+\chapter{Appendices}
+% Will be provided as separate tex documents and put afterwards, this is just
+% for reminders
+\section{Code selections}
+
+\section{Transcripts}
+
+\section{Requirement documents}
+
+\section{Paper prototype(s)}
+
+\end{document}
