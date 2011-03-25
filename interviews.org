@@ -1,0 +1,26 @@
+User interviews
+*  First interview
+
+   Interview focusing on initial data gathering, loosely formulated. The points
+   below are just points to touch upon, not hard-and-fast questions to follow in
+   order. Focus on unique insights.
+
+   1. Have you ever used Facebook events? Ever made one yourself?
+
+   2. Have you ever used location-based services such as Gowalla, Foursquare,
+      Yelp, Facebook places, or similar?
+
+   3. If you could improve something in either of these (particularly FB Events),
+      what would it be?
+
+   4. Would you use an application that lets you plan simple events on a map,
+      notify/invite your friends and uses location-based services to track
+      check-ins and such.
+
+   5. How would you prefer that such an application notifies you?
+
+   6. Would you allow the application access to your Facebook info to allow the
+      application to better recommend and rank events, and other recommendation
+      tasks?
+
+** Interviewee one
