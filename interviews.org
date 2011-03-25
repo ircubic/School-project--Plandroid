@@ -23,4 +23,7 @@ User interviews
       application to better recommend and rank events, and other recommendation
       tasks?
 
+   7. Would you want to maintain a friend list, or would you like to join
+      "communities" to control who sees your events?
+
 ** Interviewee one
