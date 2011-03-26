@@ -28,4 +28,64 @@ User interviews
    8. Would you want to maintain a friend list, or would you like to join
       "communities" to control who sees your events?
 
-** Interviewee one
+** Interview one
+
+   - Interviewer :: Ok, first of all, you're ok with me adding the transcript of
+                    this interview to my report, yes?
+   - Interviewee :: Yes
+   - Interviewer :: Good. How do you usually plan small events, like movie
+                    nights, going out to lunch, or similar?
+   - Interviewee :: I don't normally plan ahead of time.  I generally see what
+                    I'm in the mood for that day and then send a text out to all
+                    of my friends and see who feels like going.
+   - Interviewer :: ok, so you usually use texting back and forth to see who can
+                    make it?
+   - Interviewee :: Yes.
+   - Interviewer :: Do you think there could be a better way to do this, that
+                    doesn't entail as many texts?
+   - Interviewer :: would you want to use one?
+   - Interviewee :: I would.
+   - Interviewer :: Have you ever used Facebook events? Ever made one yourself?
+   - Interviewee :: I have used it before, but I have never made one for myself.
+   - Interviewer :: Do you think Facebook Events would work for simple events
+                    like mentioned? Why/Why not?
+   - Interviewee :: I do not think it would work very well because it seems like
+                    it would be a lot of work for such a little thing.
+   - Interviewee :: And I don't think enough people would notice it on time.
+   - Interviewee :: Especially if it's last minute.
+   - Interviewer :: indeed
+   - Interviewer :: Have you ever used any location-based social tools, like
+                    Gowalla, Foursquare, Yelp, Facebook places or similar?
+   - Interviewee :: No
+   - Interviewer :: Do you know anything about them?
+   - Interviewee :: Very little.
+   - Interviewer :: ok, enough to say why you don't use them?
+   - Interviewee :: I was kind of interested, but to be honest I couldn't figure
+                    out how to use the Facebook one.  I don't know what any of
+                    the others are.
+   - Interviewer :: ok, I see
+   - Interviewer :: So, would you use an application that lets you plan simple
+                    events on a map, notify your friends about it, and lets them
+                    respond without you needing to send multitudes of texts?
+   - Interviewee :: Yes.
+   - Interviewer :: Would you allow such an application access to your facebook
+                    profile, to allow the application to better recommend events
+                    that your friends are planning?
+   - Interviewee :: I would.
+   - Interviewer :: Would you like to maintain a friend list, or would you like
+                    to join "communities" to control who sees your events? In
+                    the former case, everyone on your friend's list sees the
+                    event, in the latter you'd post to only one community, and
+                    everyone in that community sees the event.
+   - Interviewee :: I would join communities.
+   - Interviewer :: Any particular reason why you'd choose that over a friend
+                    list?
+   - Interviewee :: Certain people I would like to avoid.
+   - Interviewer :: well you could just not add them to your friend list
+   - Interviewer :: but ok, that was the questions I had. Do you have any other
+                    comments you'd like to come with?
+   - Interviewee :: Well I might want to go with certain people for certain
+                    things, but not others.
+   - Interviewee :: I think that's all.
+   - Interviewer :: Ok, thank you :)
+   - Interviewee :: You're welcome!
