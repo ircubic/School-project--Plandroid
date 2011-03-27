@@ -89,3 +89,50 @@ User interviews
    - Interviewee :: I think that's all.
    - Interviewer :: Ok, thank you :)
    - Interviewee :: You're welcome!
+** Interview two
+   - Interviewer :: So, first off, are you okay with the transcript of this
+                    interview appearing in my report, scrubbed of names?
+   - Interviewee :: yep
+   - Interviewer :: ok, good. How do you usually plan small events like movie
+                    nights, lunch, or similar?
+   - Interviewee :: depending on the circle of friends, i do it via im/irc then
+                    generally send out an event notice on gcal or facebook
+   - Interviewer :: Do you find that this procedure is needlessly complicated?
+   - Interviewee :: it could definitely be streamlined, but it's better than it
+                    used to be
+   - Interviewer :: Have you ever used location-based services such as Gowalla,
+                    Foursquare, Yelp, Facebook places or similar?
+   - Interviewee :: i've used yelp heavily, mainly to find places to go
+   - Interviewer :: Any particular reason you don't use Gowalla or Foursquare?
+   - Interviewee :: i've never tried gowalla, but i saw no benefits to
+                    foursquare in my limited use
+   - Interviewer :: If you could improve on the event planning procedure you
+                    use, how would you do it?
+   - Interviewee :: i've never really thought about it, but some facility by
+                    which people can more easily figure out when their friends
+                    are free for things would make things easier
+   - Interviewer :: Interesting
+   - Interviewer :: Would you use an application that lets you plan these kinds
+                    of single events on a map, notify/invite you friends, and
+                    optionally uses location to track check-ins to events?
+   - Interviewee :: if it makes the actual planning part of it easier
+                    (especially scheduling negotiations), absolutely
+   - Interviewee :: otherwise, possible
+   - Interviewer :: Would you allow the application access to your google
+                    calendar schedule (or similar) so it can notify your friends
+                    of your availability when they plan events?
+   - Interviewee :: yes
+   - Interviewer :: Would you allow it access to your facebook info, so it can
+                    use your profile data to better recommend/rank events or
+                    otherwise use your data to make choosing events to attend to
+                    easier?
+   - Interviewee :: yes
+   - Interviewer :: Would you rather use a friend list, potentially with friend
+                    groups, or join "communities" to control who sees your
+                    events? A community in this context is a group of people
+                    with some relation to eachothers
+   - Interviewee :: i don't have a preference either way -- i'd likely use both.
+   - Interviewer :: ok, I think that should be all my questions, any other
+                    comments?
+   - Interviewee :: not off the top of my head
+   - Interviewer :: ok, thanks :)
