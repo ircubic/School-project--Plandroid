@@ -1,4 +1,14 @@
+#+latex_class: oreport
+#+LATEX_HEADER: \usepackage[utf8]{inputenc}
+#+LATEX_HEADER: \usepackage[T1]{fontenc}
+#+LATEX_HEADER: \usepackage{graphicx}
 #+LATEX_HEADER: \usepackage[usenames,dvipsnames]{color}
+#+LATEX_HEADER: \usepackage{longtable}
+#+LATEX_HEADER: \usepackage{float}
+#+LATEX_HEADER: \usepackage{wrapfig}
+#+LATEX_HEADER: \usepackage{soul}
+#+LATEX_HEADER: \usepackage{amssymb}
+#+LATEX_HEADER: \usepackage{hyperref}
 #+LATEX_HEADER: \usepackage{hypcap}
 #+LATEX_HEADER: \hypersetup{colorlinks=true,linkcolor=red,citecolor=black,filecolor=magenta, urlcolor=cyan}
 Requirements
@@ -59,30 +69,33 @@ events, and editing of a user profile.
     - Event type
     - Event location
 
-**** Event location must be choosable on a map
+*** Event location must be choosable on a map
 
-**** The user should be able to use current location as a shortcut
+*** The user should be able to use current location as a shortcut
 
-**** The user should be able to save locations under a name, for later use
+*** The user should be able to save locations under a name, for later use
 
-**** Frequently used locations should autoprompt for saving
+*** Frequently used locations should autoprompt for saving
      Should be shown with a dialog showing "You seem to go here often, do you
      want to nickname this location?" or similar, and be decided by the amount
      of events and check-ins within a certain radius in a certain time-frame
 
+*** The user should be able to plan an event at another friend's home location
+     This would open a dialog showing friends with available home locations,
+     allowing the user to select one.
 *** Event creation must set you automatically to attend
 *** Event creation should allow you to select friends to invite
 *** Event creation should highlight possible schedule conflicts
     This would go through all the events and schedules of selected friends,
     checking for events they are attending during that time period or events
     they have scheduled on their calendars, and similar.
-**** In a small conflict, show list of conflicted friends and prompt for action
+*** In a small conflict, show list of conflicted friends and prompt for action
      A small conflict is defined as having <=20% of your invite list
      conflicting. When this happens, the application should show a list of
      friends that have conflicts, and possible what event is conflicting
      (depending on the friend's privacy settings), and allow you to take them
      off the invite list.
-**** In a large conflict, show warning, and give the option to reschedule
+*** In a large conflict, show warning, and give the option to reschedule
      A large conflict is defined as having >=60% of your invite list
      conflicting. When this happens, the application should show a warning, and
      prompt the user to reschedule the event. If the user chooses to do so, they
