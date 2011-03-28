@@ -94,6 +94,44 @@ events, and editing of a user profile.
 
 ** User profile
 
-* Social features
+*** The user must have the option to set basic personal information
+    Basic personal information includes the following attributes:
+    - Name
+    - Profile picture
+    - e-mail
+    - Password
 
+*** The user should have the option to set extended information
+    Extended information could include the following:
+    - Bio / description
+    - Linked accounts
+    - Home location
+
+* Social features
+** Network integration
+*** The service should import social graph data from Facebook
+    This data should be used to aid the service in deciding an event's hotness.
+*** The service should access event data from Facebook
+    This data should be used to determine schedule conflicts for event invitations.
+*** The service should access schedule data from Google Calendar
+    This data should be used to determine schedule conflicts for event invitations.
+*** The service may sync events to Google Calendar
+    This would allow events to show up on the person's Google calendar, which
+    would aid integration into the mobile ecosystem, as many mobile interfaces
+    exist towards Google calendar, and most Android calendar apps support
+    showing Google Calendar events.
+*** The service may sync events from Google Calendar
+    If a dedicated calendar is created in Google Calendar for the event app, one
+    could quick-create events from the web by creating events in that calendar.
+*** The service may support cross posting of events to social networks
+    Potential networks to post to would be Facebook, Twitter,
 * User settings
+** Privacy
+*** The user must have the option to control who can see their schedule
+    This should have at least two options, which the user can set up much like
+    Facebook's privacy options, with one selected as the default:
+    - Who can see conflicts
+    - Who can see schedule data
+*** The user must have the option to control who can see their events
+    This controls who can see their attending events in the "friends view", who
+    can see their planned events, and so on.
