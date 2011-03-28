@@ -141,3 +141,105 @@ User interviews
    - Interviewee :: not off the top of my head
    - Interviewer :: ok, thanks :)
 
+** Interview three
+   - Interviewer :: Vel, først må jeg spørre om det er greit at jeg inkluderer
+                    en kopi av denne samtalen i rapporten min, med navn fjerna?
+   - Interviewee :: sure
+   - Interviewee :: skal prøve å ikke si noe upassende
+   - Interviewee :: xp
+   - Interviewer :: heh
+   - Interviewer :: Hvordan pleier du vanligvis å planlegge mindre events, slik
+                    som filmkvelder, lunsj, sammenkomster eller lignende?
+   - Interviewee :: På facebook eller via meldinger på mobil..evt
+                    telefonsamtaler
+   - Interviewer :: Syns du denne prosessen er unødvendig komplisert? I så fall,
+                    hvordan ville du likt å forbedre den?
+   - Interviewee :: Hehe.. nei, jeg kan ikke se for meg at det skal kunne være
+                    noe mindre komplisert
+   - Interviewer :: Har du noengang brukt facebook-eventer? Noen gang lagd de
+                    selv?
+   - Interviewee :: Jeg har blitt invitert til noen events som jeg har deltatt
+                    på. har aldri lagd noen selv..
+   - Interviewee :: Men jeg syns som oftest event-invites er irriterende
+   - Interviewee :: det er så mange jeg absolutt ikke vil delta på.. og mange
+                    som bare er unødvendige
+   - Interviewee :: :P
+   - Interviewer :: haha, ok. Har du noen gang brukt lokasjons-baserte
+                    tjenester, slik som Gowalla, Foursquare, Facebook places,
+                    eller lignende?
+   - Interviewee :: ehm.. jeg er ikke kjent med noen av de. men jeg har brukt
+                    google streetview, om det faller i den kategorien? :P
+   - Interviewer :: Ikke direkte, de nevnte tjenestene deler hvor du oppholder
+                    deg, og har slike "check-ins"
+   - Interviewee :: okay, nei,det har jeg aldri brukt ;)
+   - Interviewer :: Er det noe du syns burde forbedres med facebook events, som
+                    ville gjøre det bedre for deg?
+   - Interviewee :: Jeg vet ikke om det kanskje går da.. men jeg vil gjerne
+                    kunne filtrere bort visse personer sine invites :P f eks
+                    ansatte på tiger-tiger og sånn;)
+   - Interviewee :: kanskje få en egen liste over events som skjer på skolen
+   - Interviewee :: gruppere de , eller no
+   - Interviewer :: ok
+   - Interviewer :: Ville du tatt i bruk en applikasjon som lar deg planlegge
+                    tidligere nevnte simple events på et kart,
+                    notifisere/invitere venner og muligens bruker
+                    lokasjons-baserte tjenester til å si hvem som har kommet
+                    eller ikke?
+   - Interviewee :: Brått, hehe. Jeg er ikke supersosial og deltar ikke på så
+                    mange events, men når jeg først gjør det hadde det jo vært
+                    litt kult. Men jeg hadde nok ikke betalt for det;)
+   - Interviewee :: Hvis det var enkelt å innstallere å bruke og "alle andre"
+                    brukte det, så hadde jeg nok gjort det jeg også
+   - Interviewer :: Siden du ikke er veldig glad i invites/notifikasjoner,
+                    hvordan ville du likt at en slik applikasjon notifiserer
+                    deg, ville du sett på muligheten til å blokkere invites fra
+                    en person som kritisk?
+   - Interviewee :: kan du omformulere spørsmålet litt? vet ikke om jeg forstod
+                    det helt
+   - Interviewer :: vel, todelt. Hvordan ville du likt å få notifikasjoner fra
+                    applikasjonen om invites, antatt at dette er på en telefon?
+   - Interviewee :: Er applikasjonen knyttet til facebook på noen måte?
+   - Interviewer :: det er en mulighet
+   - Interviewee :: Det hadde jo vært greit. å få vite om det når jeg logger meg
+                    inn der. Evt når jeg logger inn på mail. Vil logge inn selv
+                    for å lese, vil ikke at det popper opp noe hele tiden
+                    automatisk og kobler seg til nettet uten at jeg vil og
+                    sånn :P Og jeg vil jo logge inn på så lite som mulig. så det
+                    burde vært på et sted jeg har fra før
+   - Interviewee :: om det gir noe mening, hehe
+   - Interviewer :: skjønner, så du vil ha mulighet for notifikasjoner andre
+                    steder.
+   - Interviewee :: ja ;)
+   - Interviewer :: det andre punktet, ville du sett på muligheten til å
+                    blokkere invites fra en person som kritisk funksjonalitet?
+   - Interviewee :: ja, hvis folk spammer..og eneste muligheten å stoppe spammen
+                    på er å unfriende de, så er jo det irriterende. jeg vil jo
+                    ikke nødvendig unfriende noen bare fordi de sender
+                    irriterende invites. muligheten til å blokkere updates på
+                    facebook er gull
+   - Interviewee :: xp
+   - Interviewee :: i hvertfall om jeg fikk en mail hver gang jeg fikk en
+                    invite.
+   - Interviewer :: Ville du latt applikasjonen få tilgang til Facebook-dataene
+                    dine, så den kan bruke de til å anbefale og rangere events,
+                    eller å automatisk si ifra til andre om at du er opptatt når
+                    de inviterer deg?
+   - Interviewee :: i guess, er det ikke det man godtar på nesten alle facebook
+                    apps? :P
+   - Interviewer :: hehe, det er mulig
+   - Interviewee :: siden jeg har gjort det flere ganger før da, uten å tenke
+                    meg så mye om, så ser jeg ingen grunn til at jeg ikke hadde
+                    gjort det igjen ;)
+   - Interviewer :: Vil du heller opprettholde en venneliste (potensielt med
+                    grupper), eller vil du heller slutte deg til "communities"
+                    for å bestemme hvem som ser eventene dine, og hvem sine
+                    eventer du ser?
+   - Interviewer :: Med "communities" mener jeg grupper med personer som har en
+                    løs tilhørighet til hverandre, så du slipper legge til alle
+                    som venn.
+   - Interviewee :: uhm jeg vil ha kontroll på alle som ser mine events og hva
+                    jeg skal på..
+   - Interviewee :: så, bare venner altså
+   - Interviewer :: ok
+   - Interviewer :: vel, det var vel alle spørsmåla mine :)
+   - Interviewee :: okay :D
