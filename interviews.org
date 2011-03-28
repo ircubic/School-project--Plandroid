@@ -1,4 +1,8 @@
+#+LATEX_HEADER: \usepackage[usenames,dvipsnames]{color}
+#+LATEX_HEADER: \usepackage{hypcap}
+#+LATEX_HEADER: \hypersetup{colorlinks=true,linkcolor=red,citecolor=black,filecolor=magenta, urlcolor=cyan}
 User interviews
+
 *  First interview
 
    Interview focusing on initial data gathering, loosely formulated. The points
@@ -136,3 +140,4 @@ User interviews
                     comments?
    - Interviewee :: not off the top of my head
    - Interviewer :: ok, thanks :)
+

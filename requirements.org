@@ -1,18 +1,96 @@
+#+LATEX_HEADER: \usepackage[usenames,dvipsnames]{color}
+#+LATEX_HEADER: \usepackage{hypcap}
+#+LATEX_HEADER: \hypersetup{colorlinks=true,linkcolor=red,citecolor=black,filecolor=magenta, urlcolor=cyan}
 Requirements
 
 * Interface
 
 The interface should have provisions for viewing events on a map, as well as a
-traditional list. It should also have provisions for a friend list, creation of
+few different list views (Upcoming events, Event invites, Friend view). It should also have provisions for a friend list, creation of
 events, and editing of a user profile.
 
 ** Map View
+*** Map must display events in small bubbles
+    The bubbles should be easily scannable, and allow users to get the gist of
+    the events on the map without needing to view them individually
+*** Bubbles should be colorized to indicate "hotness"
+    Hotness is an indicator on how likely you are to enjoy going to an event,
+    based on data from previous events.
+*** There must be a slider for time period
+    This slider decides which time period you want to show events for, and
+    should provide values like "1h", "2h", "6h", "12h", "1d", "1w", "1m"
+*** There should be provisions for filtering on other attributes
+** Upcoming events view
 
-** List View
+*** This view must present events as a scannable list
+    This should provide a decent overview of all events, focusing on
+    highlighting who is attending and the name of the event, allowing the user
+    to scan over it quickly and see what's happening next.
+*** This view should provide quick-buttons for common actions
+    The actions that should be presented:
+    - Attend event
+    - View in map view
+*** The view must be sortable by event date
+*** The view should have a "magic" sort option
+    This should sort by hotness and timeframe, so hot events coming up soon are
+    on top, later events come up further down
+** Event invites view
+*** This view must present invites to events as a list
+    The view should give much the same sorting options and quick-buttons as the
+    upcoming events view, but the events themselves should also show prominent
+    information on who sent out this invite.
+** Friend view
+*** This view must present friends in a list showing their next event
+    This is intended to give a quick overview of what your friends are doing, by
+    showing them with the next event they're attending.
+*** This view should group friends who are attending the same event
+    To reduce clutter and repetition, the view should show an event with several
+    friends attending as a single entry, with their icons or names displayed as
+    a sort of list.
 
 ** Friends List
 
 ** Event creation
+*** Event creation must allow you to provide vital event information
+    Vital event information is considered to be:
+    - Event title
+    - Event date
+    - Event time period
+    - Event type
+    - Event location
+
+**** Event location must be choosable on a map
+
+**** The user should be able to use current location as a shortcut
+
+**** The user should be able to save locations under a name, for later use
+
+**** Frequently used locations should autoprompt for saving
+     Should be shown with a dialog showing "You seem to go here often, do you
+     want to nickname this location?" or similar, and be decided by the amount
+     of events and check-ins within a certain radius in a certain time-frame
+
+*** Event creation must set you automatically to attend
+*** Event creation should allow you to select friends to invite
+*** Event creation should highlight possible schedule conflicts
+    This would go through all the events and schedules of selected friends,
+    checking for events they are attending during that time period or events
+    they have scheduled on their calendars, and similar.
+**** In a small conflict, show list of conflicted friends and prompt for action
+     A small conflict is defined as having <=20% of your invite list
+     conflicting. When this happens, the application should show a list of
+     friends that have conflicts, and possible what event is conflicting
+     (depending on the friend's privacy settings), and allow you to take them
+     off the invite list.
+**** In a large conflict, show warning, and give the option to reschedule
+     A large conflict is defined as having >=60% of your invite list
+     conflicting. When this happens, the application should show a warning, and
+     prompt the user to reschedule the event. If the user chooses to do so, they
+     are taken back to the creation screen with the date/time panel
+     highlighted. If the user chooses to ignore the warning, the same overview
+     of conflicting friends as in small conflicts is given.
+
+
 
 ** User profile
 
