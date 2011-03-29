@@ -13,6 +13,45 @@
 #+LATEX_HEADER: \hypersetup{colorlinks=true,linkcolor=red,citecolor=black,filecolor=magenta, urlcolor=cyan}
 Requirements
 
+* Data
+** Events
+*** Events must contain vital information
+    Vital event information is considered to be:
+    - Event title
+    - Event start date
+    - Event time period (either start/end time, or "all day")
+    - Event type
+    - Event location
+*** Events should be able to contain extended information
+    Extended information may be any of the following:
+    - Description of the event
+    -
+*** Events should support comments
+** Privacy settings
+*** The user must have the option to control who can see their schedule
+    This should have at least two options, which the user can set up much like
+    Facebook's privacy options, with one selected as the default:
+    - Who can see conflicts
+    - Who can see schedule data
+*** The user must have the option to control who can see their events
+    This controls who can see their attending events in the "friends view", who
+    can see their planned events, and so on.
+
+** Profile data
+*** User profiles must contain basic personal information
+    Basic personal information includes the following attributes:
+    - Name
+    - Profile picture
+    - e-mail
+    - Password
+
+*** User profiles should be able to contain extended information
+    Extended information could include the following:
+    - Bio / description
+    - Linked accounts
+    - Home location
+
+
 * Interface
 
 The interface should have provisions for viewing events on a map, as well as a
@@ -20,6 +59,7 @@ few different list views (Upcoming events, Event invites, Friend view). It shoul
 events, and editing of a user profile.
 
 ** Map View
+This view gives you an overview of what events are happening in an area on a map
 *** Map must display events in small bubbles
     The bubbles should be easily scannable, and allow users to get the gist of
     the events on the map without needing to view them individually
@@ -29,27 +69,44 @@ events, and editing of a user profile.
 *** There must be a slider for time period
     This slider decides which time period you want to show events for, and
     should provide values like "1h", "2h", "6h", "12h", "1d", "1w", "1m"
-*** There should be provisions for filtering on other attributes
-** Upcoming events view
-
-*** This view must present events as a scannable list
-    This should provide a decent overview of all events, focusing on
-    highlighting who is attending and the name of the event, allowing the user
-    to scan over it quickly and see what's happening next.
-*** This view should provide quick-buttons for common actions
-    The actions that should be presented:
-    - Attend event
-    - View in map view
+*** There may be provisions for filtering on other attributes
+** List views
+   These are requirements that are common for all three list-based
+   views. The following three requirements sections modify or add to this list.
+*** There must be three list based views
+    The required list-based views are:
+    - Upcoming events view
+    - Event invites view
+    - Friend view
+*** List views must present events as a scannable list
+    This list should use up a minimal amount of vertical space for each events,
+    while still giving a pleasing view of the event.
+*** The views should provide quick-buttons for common actions
+    All three list views should have quick-buttons for attending the event, and
+    viewing the event in map view.
 *** The view must be sortable by event date
 *** The view should have a "magic" sort option
     This should sort by hotness and timeframe, so hot events coming up soon are
     on top, later events come up further down
+** Upcoming events view
+This view is a list-based event view that shows upcoming events, sorted by
+various criterion.
+*** This view must focus on allowing the user to scan for what's happening next
+    This should provide a decent overview of all events, focusing on
+    highlighting who is attending and the name of the event, allowing the user
+    to scan over it quickly and see what's happening next.
+*** This view should group events that are happening within a certain time-frame
 ** Event invites view
+This view is a list-based event view showing the events you have outstanding
+invites to.
 *** This view must present invites to events as a list
-    The view should give much the same sorting options and quick-buttons as the
-    upcoming events view, but the events themselves should also show prominent
-    information on who sent out this invite.
+    The events should also highlight who sent out this invite, in addition to the
+    name of the event.
+*** This view should consolidate multiple events to the same event
+    If multiple events to the same event exists, they should me merged into a
+    single entry, with a list of who's invited you.
 ** Friend view
+This view is a list-based event view focusing on friends.
 *** This view must present friends in a list showing their next event
     This is intended to give a quick overview of what your friends are doing, by
     showing them with the next event they're attending.
@@ -58,19 +115,51 @@ events, and editing of a user profile.
     friends attending as a single entry, with their icons or names displayed as
     a sort of list.
 
+*** This view may collapse friends to groups if possible
+    This means that if all members of a certain group is attending an event,
+    these friends will be collapsed, and just the group name is shown.
+
+** Event view
+This is the view that shows a single event in detail, with all the information
+associated with it, and allows actions upon the event
+
+*** Event view must have an edit button
+*** Event view must have options to attend/not attend
+*** Event view must show vital event information in a pleasing way
+    This means that the title should be prominent, the creator of the event
+    should be highlighted, the event's location should be shown on a prominent
+    map, and the time-frame for the event must be clearly visible.
+*** Event view must have an indicator for hotness
+    This indicator should be similar in look to the hotness indicator used for
+    the abbreviated views of events on the map or list views.
+*** Event view must show who is attending
+    This view should be sorted in way that makes the most sense for the person
+    viewing the events, so the friends they know the best (as decided by the
+    social graph) are shown first, and then be listed in descending order of
+    "closeness".
+*** Event view should show comments, with newest on top
+    There should be a section in the event view showing all comments for the
+    event, paginated if necessary. There should also be a box on top for adding
+    new comments.
+*** If the user has pending invites for this event, they should be shown
 ** Friends List
+*** The friends list must support adding friends
+    This will be accomplished by sending a friend request, which has to be
+    accepted by the recipient before the friendship is in effect.
+*** The friends list must support removing friends
+    This should be done without notifying the friend that is being removed, and
+    should not require confirmation from the friend.
+*** The friends list must support groups of friends
+    These groups will be used to handle privacy settings, and to ease
+    invitations. A friend may be in any number of groups, including zero.
 
-** Event creation
+*** The friends list must support blocking friends
+** Event creation and editing
 *** Event creation must allow you to provide vital event information
-    Vital event information is considered to be:
-    - Event title
-    - Event date
-    - Event time period
-    - Event type
-    - Event location
-
+    This information should be input with methods that reflect the data
+    type. Date fields must show a calendar and time fields must show a time picker.
 *** Event location must be choosable on a map
-
+    This map should also show any stored locations as selectable tags
 *** The user should be able to use current location as a shortcut
 
 *** The user should be able to save locations under a name, for later use
@@ -84,41 +173,35 @@ events, and editing of a user profile.
      This would open a dialog showing friends with available home locations,
      allowing the user to select one.
 *** Event creation must set you automatically to attend
-*** Event creation should allow you to select friends to invite
+*** Event creation must allow you to select friends to invite
+    There should be an option to select initial friends to invite in the
+    creation process, eliminating the need for multiple steps
 *** Event creation should highlight possible schedule conflicts
     This would go through all the events and schedules of selected friends,
     checking for events they are attending during that time period or events
     they have scheduled on their calendars, and similar.
+*** Inviting further friends to an event should also check for conflicts
 *** In a small conflict, show list of conflicted friends and prompt for action
-     A small conflict is defined as having <=20% of your invite list
+     A small conflict is defined as having <=20% of your guest list
      conflicting. When this happens, the application should show a list of
-     friends that have conflicts, and possible what event is conflicting
+     guests that have conflicts, and possible what event is conflicting
      (depending on the friend's privacy settings), and allow you to take them
-     off the invite list.
+     off the invite list if wanted.
 *** In a large conflict, show warning, and give the option to reschedule
-     A large conflict is defined as having >=60% of your invite list
+     A large conflict is defined as having >=60% of your guest list
      conflicting. When this happens, the application should show a warning, and
      prompt the user to reschedule the event. If the user chooses to do so, they
-     are taken back to the creation screen with the date/time panel
+     are taken back to the creation/editing screen with the date/time panel
      highlighted. If the user chooses to ignore the warning, the same overview
      of conflicting friends as in small conflicts is given.
 
 
-
 ** User profile
-
-*** The user must have the option to set basic personal information
-    Basic personal information includes the following attributes:
-    - Name
-    - Profile picture
-    - e-mail
-    - Password
-
+*** The user must set basic personal information
+    It is an error not to fill in all of the basic personal information fields
 *** The user should have the option to set extended information
-    Extended information could include the following:
-    - Bio / description
-    - Linked accounts
-    - Home location
+    Extendend information is optional, and as such is not necessary to fill out.
+*** The user should have the option to hide/show some information
 
 * Social features
 ** Network integration
@@ -138,13 +221,3 @@ events, and editing of a user profile.
     could quick-create events from the web by creating events in that calendar.
 *** The service may support cross posting of events to social networks
     Potential networks to post to would be Facebook, Twitter,
-* User settings
-** Privacy
-*** The user must have the option to control who can see their schedule
-    This should have at least two options, which the user can set up much like
-    Facebook's privacy options, with one selected as the default:
-    - Who can see conflicts
-    - Who can see schedule data
-*** The user must have the option to control who can see their events
-    This controls who can see their attending events in the "friends view", who
-    can see their planned events, and so on.
