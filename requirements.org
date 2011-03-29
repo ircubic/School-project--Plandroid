@@ -25,7 +25,7 @@ Requirements
 *** Events should be able to contain extended information
     Extended information may be any of the following:
     - Description of the event
-    -
+    - ? TODO
 *** Events should support comments
 ** Privacy settings
 *** The user must have the option to control who can see their schedule
@@ -195,13 +195,13 @@ associated with it, and allows actions upon the event
      highlighted. If the user chooses to ignore the warning, the same overview
      of conflicting friends as in small conflicts is given.
 
-
 ** User profile
 *** The user must set basic personal information
     It is an error not to fill in all of the basic personal information fields
 *** The user should have the option to set extended information
     Extendend information is optional, and as such is not necessary to fill out.
 *** The user should have the option to hide/show some information
+
 
 * Social features
 ** Network integration
