@@ -82,14 +82,21 @@ Events and similar platforms, there are also solutions for location-based
 services. However, there are no services that integrate the two in a seamless
 manner, and both types of services have traditionally had separate focuses.
 
+In addition, the planner still has to conduct several conversations with people
+if the events that are planned rely heavily on the availability of the invited
+participants, as there are currently no good solutions for automating schedule
+conflict resolution.
+
 \section{Motivation}
 
 The motivation of this report is to design a social event planning application
-that focus on low-key, day-to-day events, utilizes the social graph to give
-recommendations, and a map-based view. The type of events planned are intended
-to be the personal, small-scale variants, like ``we're going to lunch, where do
-we want to go?'', ``I'm having a movie get together, who wants to come'', as
-opposed to big-scale events like concerts, movie showings and similar.
+that focus on low-key, day-to-day events, utilizes already existing social
+networks to give recommendations, uses the information stored in the networks to
+streamline event creation, and a map-based view. The type of events planned are
+intended to be the personal, small-scale variants, like ``we're going to lunch,
+where do we want to go?'', ``I'm having a movie get together, who wants to
+come'', as opposed to big-scale events like concerts, movie showings and
+similar.
 
 The reason for this is to explore what benefits, if any, people can get from
 using mobile devices to streamline inherently social day-to-day tasks, and if
@@ -103,8 +110,7 @@ H\o{}gskolen i \O{}stfold\cite{site:mobapp}.
 
 \section{Previous and related work}
 
-\subsection{Similar solutions}
-
+\subsubsection{Similar solutions}
 
 \begin{description}
 \item[Belugapods] A group-based messaging service that allows conversation
@@ -122,11 +128,49 @@ H\o{}gskolen i \O{}stfold\cite{site:mobapp}.
 \item[Gowalla] Similar to foursquare TODO.\cite{site:gowalla}
 \end{description}
 
+
+
 \chapter{Methods}
 
-\section{Discovery/Design/Evaluation}
+\section{Phases}
 
-\subsection{Personas}
+The method I intend to use in designing this application will go through the
+phases of Discovery, Design and Evaluation. The phases will be described in
+detail in further sections, but a quick summary is given:
+
+\begin{description}
+\item[Discovery] In the discovery phase, data is gathered to attempt to get an
+  overview of what's already out there, what problems existing solutions have,
+  what the potential users of the application want, and other useful info.
+\item[Design] In the design phase, the data gathered so far is processed, and a
+  prototype for the application (of any level of completeness) is created from
+  it.
+\item[Evaluation] The design is evaluated through user tests and/or other,
+  heuristic, tests. If these tests indicate that the current prototype is not
+  good enough, we return to the design phase to make another.
+\end{description}
+
+\subsection{Discovery}
+
+The discovery phase is when the initial data regarding the application to be
+designed is gathered. In this phase, I will find similar solutions to the one I
+am designing, looking for their strengths and weaknesses. I will also perform
+interviews focused on answering questions about the application that are
+unclear, or just to get ideas on how to solve certain problems.
+
+Once I have gathered enough info, I will process the information I have, and
+create an initial requirements document documenting my initial ideas for the
+application, then move onto the first design phase.
+
+\subsection{Design}
+
+In the design phase, I will create prototypes for the application, based on the
+latest requirements document. The prototypes created will all be paper
+prototypes, as there is no time to make a functional prototype, and many of the
+technologies inherent in my application take a lot of time and resources to
+develop to even a prototype level.
+
+\subsubsection{Personas}
 
 As a help for the design process, I have created three personas that describes
 main sections of the user base I'm expecting for my application. These will be a
@@ -154,11 +198,37 @@ help when evaluating requirements and design decisions.
   have lunch or a beer.
 \end{enumerate}
 
+\subsubsection{Evaluation}
+
+In the evaluation phase, I will use the prototypes created in the Design phase,
+then run them through user tests. These user tests will focus on running the
+users through various tasks, observing their behaviour, how intuitive the
+design is, as well as if displayed screens match user's expectations. These
+tests will be designed to answer a set of questions determined before each test
+is created.
+
+In addition, informal interview or question sessions may be done after these
+user tests to answer any questions that might have arisen during tests, as well
+as any that have been left unanswered from the initial set of questions.
+
+If the evaluation phase points out that there are problems with the current
+design, and there is time left, I will return to the design phase, otherwise the
+design is evaluated against the final evaluation criteria.
+
 \section{Final evaluation criteria}
+
+The final evaluation criteria will be based on the user tests on the final
+prototype, as well as aggregated data from all the user tests that have been
+run. They will look at how well the user likes the social features, and if they
+perceive that they would make the job of planning events easier for them. In
+addition, the design will be evaluated for usability concerns, and privacy
+concerns.
 
 \section{Frameworks}
 
 \section{Process - motivated progress}
+
+What?
 
 \chapter{Results}
 
@@ -190,8 +260,10 @@ help when evaluating requirements and design decisions.
 \section{Conclusion}
 
 \chapter{Appendices}
-% Will be provided as separate tex documents and put afterwards, this is just
-% for reminders
+
+Will be provided as separate tex documents and put afterwards, these headers are
+just for reminders
+
 \section{Code selections}
 
 \section{Transcripts}
