@@ -53,6 +53,11 @@
 \setlength{\parskip}{1.3ex plus 0.2ex minus 0.2ex}
 \setlength{\parindent}{0pt}
 
+% Nicer margin comments
+\let\oldmarginpar\marginpar
+\renewcommand\marginpar[1]{\-\oldmarginpar[\raggedleft\footnotesize #1]%
+{\raggedright\footnotesize #1}}
+
 %
 % Document begins here
 %
@@ -89,7 +94,7 @@ conflict resolution.
 
 \section{Motivation}
 
-The motivation of this report is to design a social event planning application
+The aim of this report is to design a social event planning application
 that focus on low-key, day-to-day events, utilizes already existing social
 networks to give recommendations, uses the information stored in the networks to
 streamline event creation, and a map-based view. The type of events planned are
@@ -98,13 +103,13 @@ where do we want to go?'', ``I'm having a movie get together, who wants to
 come'', as opposed to big-scale events like concerts, movie showings and
 similar.
 
-The reason for this is to explore what benefits, if any, people can get from
+The motivation for this is to explore what benefits, if any, people can get from
 using mobile devices to streamline inherently social day-to-day tasks, and if
 modern tools like the social graph and recommendation systems can improve on how
-they are done, and make friends feel more intimately connected.
+they are done, and make friends feel more intimately connected. The report will
+especially focus on the schedule negotiation aspect of planning events.
 
 \section{Context}
-
 This report was written in conjunction with the Mobile Applications course at
 H\o{}gskolen i \O{}stfold\cite{site:mobapp}.
 
@@ -125,10 +130,8 @@ H\o{}gskolen i \O{}stfold\cite{site:mobapp}.
 \item[Foursquare] A game that uses location-based check-ins, which gives you
   badges for accomplishing certain tasks or going to certain places. It also
   allows you to give tips about places.\cite{site:foursquare}
-\item[Gowalla] Similar to foursquare TODO.\cite{site:gowalla}
+\item[Gowalla] Similar to foursquare.\cite{site:gowalla}\marginpar{Fill out more here}
 \end{description}
-
-
 
 \chapter{Methods}
 
@@ -271,5 +274,7 @@ just for reminders
 \section{Requirement documents}
 
 \section{Paper prototype(s)}
+
+Mockups\cite{site:mockups}
 
 \end{document}
