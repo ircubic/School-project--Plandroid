@@ -9,3 +9,4 @@ auto/
 *.pdf
 /requirements.tex
 /interviews.tex
+/prototype/bin/
