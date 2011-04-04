@@ -1,0 +1,30 @@
+#+latex_class: oreport
+#+LATEX_HEADER: \usepackage[utf8]{inputenc}
+#+LATEX_HEADER: \usepackage[T1]{fontenc}
+#+LATEX_HEADER: \usepackage{graphicx}
+#+LATEX_HEADER: \usepackage[usenames,dvipsnames]{color}
+#+LATEX_HEADER: \usepackage{longtable}
+#+LATEX_HEADER: \usepackage{float}
+#+LATEX_HEADER: \usepackage{wrapfig}
+#+LATEX_HEADER: \usepackage{soul}
+#+LATEX_HEADER: \usepackage{amssymb}
+#+LATEX_HEADER: \usepackage{hyperref}
+#+LATEX_HEADER: \usepackage{hypcap}
+#+LATEX_HEADER: \hypersetup{colorlinks=true,linkcolor=red,citecolor=black,filecolor=magenta, urlcolor=cyan}
+Prototypes
+
+* First prototype
+The first prototype is designed to facilitate my first test scenarios, and
+focused towards testing how to resolve conflicts in a user friendly manner.
+
+The screens necessary to go through the scenarios are as follows:
+
+  1. Initial screen, with "Create event" button
+
+  2. Create event screen, as described in requirements document.
+
+  3. Invite friend(s) screen
+
+  4. Conflict resolution screen
+
+  5. Creation success screen

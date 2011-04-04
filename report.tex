@@ -168,13 +168,10 @@ to the way it is described in the Motivation section. Parallel to this I created
 a requirements document for the application I would design, focusing most on the
 area I had narrowed down as the goal area for my report.
 
-\subsection{Design}
+With this information in hand, I would enter the design phase with the intent of
+creating a functional prototype.
 
-In the design phase, I will create prototypes for the application, based on the
-latest requirements document. The prototypes created will all be paper
-prototypes, as there is no time to make a functional prototype, and many of the
-technologies inherent in my application take a lot of time and resources to
-develop to even a prototype level.
+\subsection{Design}
 
 \subsubsection{Personas}
 
@@ -203,6 +200,27 @@ help when evaluating requirements and design decisions.
   family, but also likes getting together with his buddies from time to time to
   have lunch or a beer.
 \end{enumerate}
+
+\subsubsection{First prototype}
+
+In the first\marginpar{Remove first if we don't do more design phases} design
+phase, I created a functional prototype of the application in the form of an
+Android application. This application was hard-coded to be used with the
+following set of scenarios:
+
+\begin{itemize}
+\item The user creates an event with no conflicts, to be used for general
+  commentary on flow, and as baseline.
+\item The user creates a small, personal event with only a 10\% conflict rate,
+  and has to handle the conflict. Handles the ``trivial conflict'' case.
+\item The user creates a small, personal event with a 50\% conflict rate, and
+  has to handle the conflict. Handles the ``massive conflict'' case.
+\item The use creates a big event with a 20\% conflict rate, and has to handle
+  the conflict. Handles the ``moderate conflict with high amount of people''
+  case.
+\end{itemize}
+
+The application was then tested with five users.
 
 \subsubsection{Evaluation}
 
