@@ -14,17 +14,29 @@
 Prototypes
 
 * First prototype
-The first prototype is designed to facilitate my first test scenarios, and
-focused towards testing how to resolve conflicts in a user friendly manner.
+The first prototype is a very focused prototype, designed to facilitate my first
+test scenarios on testing how to present conflicts so they can be resolved in a
+user friendly manner.
 
 The screens necessary to go through the scenarios are as follows:
 
   1. Initial screen, with "Create event" button
-
-  2. Create event screen, as described in requirements document.
-
+  2. Create event screen.
   3. Invite friend(s) screen
-
   4. Conflict resolution screen
-
   5. Creation success screen
+
+The screens should be made mostly as described in the requirements documents,
+but with simplifications to cut down development time of the prototype. In
+particular, the create event screen will forego everything regarding maps and
+locations, as it would take a massive amount of time to implement, and is only
+tangential to the purpose of the prototype.
+
+In addition, the prototype will provide a default friend list, and any conflicts
+are dynamically generated (no actual schedule lookup happens, but a percentage
+of friends satisfying the scenario criteria is randomly chosen to be
+conflicts). The prototype will also largely ignore any life-cycle issues,
+
+Issues I see with this prototype design is that it won't capture the reflection
+over conflicts on part of the user that it would if the friend list contained
+actually real friends.
