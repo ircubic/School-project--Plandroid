@@ -15,6 +15,7 @@
         </activity>
         <activity android:name=".EventCreation"></activity>
         <provider android:authorities="net.ircubic.eventmap.friendprovider" android:name="FriendProvider"></provider>
+        <activity android:name=".FriendInviting"></activity>
 
     </application>
 </manifest>

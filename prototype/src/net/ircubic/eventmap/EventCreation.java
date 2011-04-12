@@ -8,9 +8,11 @@ import android.app.DatePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
@@ -46,6 +48,14 @@ public class EventCreation extends Activity {
 		start_time = set_up_button(R.id.editStartTime, START_TIME_DIALOG);
 		end_date = set_up_button(R.id.editEndDate, END_DATE_DIALOG);
 		end_time = set_up_button(R.id.editEndTime, END_TIME_DIALOG);
+		
+		Button inviteButton = (Button)findViewById(R.id.inviteButton);
+		inviteButton.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+				startInviting();
+			}
+		});
 		
 		calendar_start = GregorianCalendar.getInstance();
 		calendar_end = GregorianCalendar.getInstance();
@@ -123,6 +133,11 @@ public class EventCreation extends Activity {
 		}
 		else
 			return null;
+	}
+
+	private void startInviting() {
+		Intent intent = new Intent(this, FriendInviting.class);
+		startActivity(intent);
 	}
 
 }

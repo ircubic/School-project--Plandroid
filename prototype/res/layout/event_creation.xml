@@ -27,5 +27,6 @@
 		<Button android:text="End time" android:layout_height="wrap_content"
 		 android:id="@+id/editEndTime" android:layout_width="wrap_content"></Button>
 	</LinearLayout>
+	<Button android:layout_width="wrap_content" android:id="@+id/inviteButton" android:layout_height="wrap_content" android:text="@string/invite_friend"></Button>
 
 </LinearLayout>
