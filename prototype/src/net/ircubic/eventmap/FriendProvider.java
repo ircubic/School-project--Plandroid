@@ -26,7 +26,7 @@ public class FriendProvider extends ContentProvider {
 	private static final int FRIENDS = 1;
 	private static final int FRIEND_ID = 2;
 
-	public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY);
+	public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/");
 
 	private static final UriMatcher sUriMatcher;
 
@@ -35,12 +35,12 @@ public class FriendProvider extends ContentProvider {
 
 		// Add a pattern that routes URIs terminated with "notes" to a NOTES
 		// operation
-		sUriMatcher.addURI(AUTHORITY, "", FRIENDS);
+		sUriMatcher.addURI(AUTHORITY, "/", FRIENDS);
 
 		// Add a pattern that routes URIs terminated with "notes" plus an
 		// integer
 		// to a note ID operation
-		sUriMatcher.addURI(AUTHORITY, "#", FRIEND_ID);
+		sUriMatcher.addURI(AUTHORITY, "/#", FRIEND_ID);
 
 	}
 
