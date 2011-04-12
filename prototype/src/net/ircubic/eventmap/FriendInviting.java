@@ -3,6 +3,7 @@ package net.ircubic.eventmap;
 import android.app.ListActivity;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
 public class FriendInviting extends ListActivity {
@@ -16,7 +17,12 @@ public class FriendInviting extends ListActivity {
 		String from[] = {FriendProvider.KEY_NAME};
 		int to[] = {R.id.friendName};
 		SimpleCursorAdapter ca = new SimpleCursorAdapter(this, R.layout.friend_row, c, from, to);
+		/*Button saveButton = new Button(this);
+		saveButton.setText("Invite");
+		getListView().addFooterView(saveButton);*/
 		setListAdapter(ca);
+		getListView().setItemsCanFocus(false);
+		getListView().setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 	}
 
 	@Override
