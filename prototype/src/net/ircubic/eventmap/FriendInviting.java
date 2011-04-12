@@ -13,8 +13,8 @@ public class FriendInviting extends ListActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Cursor c = managedQuery(FriendProvider.CONTENT_URI, null, null, null, null);
-		String from[] = {FriendProvider.KEY_NAME, FriendProvider.KEY_PIC};
-		int to[] = {R.id.friendName, R.id.friendPic};
+		String from[] = {FriendProvider.KEY_NAME};
+		int to[] = {R.id.friendName};
 		SimpleCursorAdapter ca = new SimpleCursorAdapter(this, R.layout.friend_row, c, from, to);
 		setListAdapter(ca);
 	}
