@@ -1,5 +1,6 @@
 package net.ircubic.eventmap;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -22,6 +23,7 @@ public class EventCreation extends Activity {
 	private Calendar calendar_start;
 	private Calendar calendar_end;
 	private Calendar editing_calendar;
+	private ArrayList<Long> invitees;
 
 	private java.text.DateFormat df;
 	private java.text.DateFormat tf;
@@ -72,6 +74,15 @@ public class EventCreation extends Activity {
 			}
 		});
 		return button;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (requestCode == FriendInviting.INVITE) {
+			super.onActivityResult(requestCode, resultCode, data);
+			invitees = (ArrayList<Long>) data.getSerializableExtra("invited");
+		}
 	}
 
 	private void updateDates() {
@@ -137,7 +148,7 @@ public class EventCreation extends Activity {
 
 	private void startInviting() {
 		Intent intent = new Intent(this, FriendInviting.class);
-		startActivity(intent);
+		startActivityForResult(intent, FriendInviting.INVITE);
 	}
 
 }
