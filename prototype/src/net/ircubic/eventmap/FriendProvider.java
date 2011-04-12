@@ -55,6 +55,23 @@ public class FriendProvider extends ContentProvider {
 			db.execSQL(String
 					.format("CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT, %s TEXT, %s TEXT);",
 							DATABASE_TABLE, KEY_ID, KEY_NAME, KEY_PIC));
+			String mock_vals[][] = { { "Mother", "derp" },
+					{ "Father Winter", "doop" } };
+
+			ContentValues values = new ContentValues();
+			try {
+				db.beginTransaction();
+				for (String[] val : mock_vals) {
+					values.put(KEY_NAME, val[0]);
+					values.put(KEY_NAME, val[1]);
+					db.insert(DATABASE_TABLE, KEY_NAME, values);
+					values.clear();
+				}
+				db.setTransactionSuccessful();
+			} catch (SQLException e) {
+			} finally {
+				db.endTransaction();
+			}
 		}
 
 		@Override
@@ -106,6 +123,7 @@ public class FriendProvider extends ContentProvider {
 	@Override
 	public boolean onCreate() {
 		mDBHelper = new DBHelper(getContext());
+
 		return true;
 	}
 
