@@ -10,12 +10,16 @@ import android.app.DatePickerDialog.OnDateSetListener;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 import android.widget.TimePicker;
 
 public class EventCreation extends Activity
@@ -33,6 +37,7 @@ public class EventCreation extends Activity
 	private Button start_date;
 	private Button end_date;
 	private Button end_time;
+	private ListView invitee_list;
 
 	static final int START_DATE_DIALOG = 0;
 	static final int START_TIME_DIALOG = 1;
@@ -48,6 +53,7 @@ public class EventCreation extends Activity
 		df = DateFormat.getDateFormat(getApplicationContext());
 		tf = DateFormat.getTimeFormat(getApplicationContext());
 
+		invitee_list = (ListView)findViewById(R.id.inviteeList);
 		start_date = set_up_button(R.id.editStartDate, START_DATE_DIALOG);
 		start_time = set_up_button(R.id.editStartTime, START_TIME_DIALOG);
 		end_date = set_up_button(R.id.editEndDate, END_DATE_DIALOG);
@@ -88,6 +94,15 @@ public class EventCreation extends Activity
 		if (requestCode == FriendInviting.INVITE) {
 			super.onActivityResult(requestCode, resultCode, data);
 			invitees = (ArrayList<Long>)data.getSerializableExtra("invited");
+			String where = String.format("%s IN (%s)", FriendProvider.KEY_ID,
+					TextUtils.join(",", invitees));
+			Cursor c = managedQuery(FriendProvider.CONTENT_URI, null, where,
+					null, null);
+			String from[] = {FriendProvider.KEY_NAME};
+			int to[] = {R.id.friendName};
+			SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
+					R.layout.friend_row2, c, from, to);
+			invitee_list.setAdapter(adapter);
 		}
 	}
 
