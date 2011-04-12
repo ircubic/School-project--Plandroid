@@ -35,6 +35,7 @@ public class FriendInviting extends ListActivity
 
 			public void onClick(View v)
 			{
+				setInvitees();
 				finish();
 			}
 		});
@@ -65,7 +66,6 @@ public class FriendInviting extends ListActivity
 	protected void onPause()
 	{
 		super.onPause();
-		setInvitees();
 	}
 
 	@Override
