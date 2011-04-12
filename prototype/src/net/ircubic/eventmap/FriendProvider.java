@@ -55,7 +55,7 @@ public class FriendProvider extends ContentProvider {
 			db.execSQL(String
 					.format("CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT, %s TEXT, %s TEXT);",
 							DATABASE_TABLE, KEY_ID, KEY_NAME, KEY_PIC));
-			String mock_vals[][] = { { "Mother", "derp" },
+			String mock_vals[][] = { { "Mother Spring", "derp" },
 					{ "Father Winter", "doop" } };
 
 			ContentValues values = new ContentValues();
@@ -63,8 +63,8 @@ public class FriendProvider extends ContentProvider {
 				db.beginTransaction();
 				for (String[] val : mock_vals) {
 					values.put(KEY_NAME, val[0]);
-					values.put(KEY_NAME, val[1]);
-					db.insert(DATABASE_TABLE, KEY_NAME, values);
+					values.put(KEY_PIC, val[1]);
+					db.insert(DATABASE_TABLE, null, values);
 					values.clear();
 				}
 				db.setTransactionSuccessful();
