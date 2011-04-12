@@ -18,7 +18,8 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
 
-public class EventCreation extends Activity {
+public class EventCreation extends Activity
+{
 
 	private Calendar calendar_start;
 	private Calendar calendar_end;
@@ -39,7 +40,8 @@ public class EventCreation extends Activity {
 	static final int END_TIME_DIALOG = 3;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState)
+	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.event_creation);
 
@@ -50,26 +52,29 @@ public class EventCreation extends Activity {
 		start_time = set_up_button(R.id.editStartTime, START_TIME_DIALOG);
 		end_date = set_up_button(R.id.editEndDate, END_DATE_DIALOG);
 		end_time = set_up_button(R.id.editEndTime, END_TIME_DIALOG);
-		
+
 		Button inviteButton = (Button)findViewById(R.id.inviteButton);
 		inviteButton.setOnClickListener(new OnClickListener() {
-			
-			public void onClick(View v) {
+
+			public void onClick(View v)
+			{
 				startInviting();
 			}
 		});
-		
+
 		calendar_start = GregorianCalendar.getInstance();
 		calendar_end = GregorianCalendar.getInstance();
 		calendar_end.add(Calendar.HOUR, 1);
 
 		updateDates();
 	}
-	
-	private Button set_up_button(int id, final int dialog_id){
-		Button button = (Button) findViewById(id);
+
+	private Button set_up_button(int id, final int dialog_id)
+	{
+		Button button = (Button)findViewById(id);
 		button.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
+			public void onClick(View v)
+			{
 				showDialog(dialog_id);
 			}
 		});
@@ -78,14 +83,16 @@ public class EventCreation extends Activity {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+	protected void onActivityResult(int requestCode, int resultCode, Intent data)
+	{
 		if (requestCode == FriendInviting.INVITE) {
 			super.onActivityResult(requestCode, resultCode, data);
-			invitees = (ArrayList<Long>) data.getSerializableExtra("invited");
+			invitees = (ArrayList<Long>)data.getSerializableExtra("invited");
 		}
 	}
 
-	private void updateDates() {
+	private void updateDates()
+	{
 		start_date.setText(df.format(calendar_start.getTime()));
 		start_time.setText(tf.format(calendar_start.getTime()));
 		end_date.setText(df.format(calendar_end.getTime()));
@@ -93,19 +100,22 @@ public class EventCreation extends Activity {
 	}
 
 	@Override
-	protected void onPause() {
+	protected void onPause()
+	{
 		// TODO Auto-generated method stub
 		super.onPause();
 	}
 
 	@Override
-	protected void onResume() {
+	protected void onResume()
+	{
 		// TODO Auto-generated method stub
 		super.onResume();
 	}
 
 	private TimePickerDialog.OnTimeSetListener mStartTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
-		public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+		public void onTimeSet(TimePicker view, int hourOfDay, int minute)
+		{
 			editing_calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
 			editing_calendar.set(Calendar.MINUTE, minute);
 			updateDates();
@@ -115,7 +125,8 @@ public class EventCreation extends Activity {
 	private OnDateSetListener mStartDateSetListener = new OnDateSetListener() {
 
 		public void onDateSet(DatePicker view, int year, int monthOfYear,
-				int dayOfMonth) {
+				int dayOfMonth)
+		{
 			editing_calendar.set(Calendar.YEAR, year);
 			editing_calendar.set(Calendar.MONTH, monthOfYear);
 			editing_calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
@@ -124,29 +135,30 @@ public class EventCreation extends Activity {
 	};
 
 	@Override
-	protected Dialog onCreateDialog(int id) {
-		if(id == START_TIME_DIALOG || id == START_DATE_DIALOG)
+	protected Dialog onCreateDialog(int id)
+	{
+		if (id == START_TIME_DIALOG || id == START_DATE_DIALOG)
 			editing_calendar = calendar_start;
 		else
 			editing_calendar = calendar_end;
-		
-		if(id == START_TIME_DIALOG || id == END_TIME_DIALOG) {
+
+		if (id == START_TIME_DIALOG || id == END_TIME_DIALOG) {
 			return new TimePickerDialog(this, mStartTimeSetListener,
 					editing_calendar.get(Calendar.HOUR_OF_DAY),
 					editing_calendar.get(Calendar.MINUTE), false);
 		}
-		
-		else if(id == START_DATE_DIALOG || id == END_DATE_DIALOG) {
+
+		else if (id == START_DATE_DIALOG || id == END_DATE_DIALOG) {
 			return new DatePickerDialog(this, mStartDateSetListener,
 					editing_calendar.get(Calendar.YEAR),
 					editing_calendar.get(Calendar.MONTH),
 					editing_calendar.get(Calendar.DAY_OF_MONTH));
-		}
-		else
+		} else
 			return null;
 	}
 
-	private void startInviting() {
+	private void startInviting()
+	{
 		Intent intent = new Intent(this, FriendInviting.class);
 		startActivityForResult(intent, FriendInviting.INVITE);
 	}

@@ -12,7 +12,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 
-public class FriendProvider extends ContentProvider {
+public class FriendProvider extends ContentProvider
+{
 
 	public static final String KEY_NAME = "name";
 	public static final String KEY_PIC = "pic";
@@ -26,7 +27,8 @@ public class FriendProvider extends ContentProvider {
 	private static final int FRIENDS = 1;
 	private static final int FRIEND_ID = 2;
 
-	public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/friends");
+	public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY
+			+ "/friends");
 
 	private static final UriMatcher sUriMatcher;
 
@@ -39,19 +41,21 @@ public class FriendProvider extends ContentProvider {
 
 	}
 
-	private static class DBHelper extends SQLiteOpenHelper {
+	private static class DBHelper extends SQLiteOpenHelper
+	{
 
 		public DBHelper(Context context) {
 			super(context, DATABASE_NAME, null, 1);
 		}
 
 		@Override
-		public void onCreate(SQLiteDatabase db) {
+		public void onCreate(SQLiteDatabase db)
+		{
 			db.execSQL(String
 					.format("CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT, %s TEXT, %s TEXT);",
 							DATABASE_TABLE, KEY_ID, KEY_NAME, KEY_PIC));
-			String mock_vals[][] = { { "Mother Spring", "derp" },
-					{ "Father Winter", "doop" } };
+			String mock_vals[][] = { {"Mother Spring", "derp"},
+					{"Father Winter", "doop"}};
 
 			ContentValues values = new ContentValues();
 			try {
@@ -63,14 +67,16 @@ public class FriendProvider extends ContentProvider {
 					values.clear();
 				}
 				db.setTransactionSuccessful();
-			} catch (SQLException e) {
-			} finally {
+			}
+			catch (SQLException e) {}
+			finally {
 				db.endTransaction();
 			}
 		}
 
 		@Override
-		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
+		{
 			db.execSQL(String.format("DROP TABLE IF EXISTS %s", DATABASE_TABLE));
 			onCreate(db);
 		}
@@ -80,13 +86,15 @@ public class FriendProvider extends ContentProvider {
 	private DBHelper mDBHelper;
 
 	@Override
-	public int delete(Uri uri, String selection, String[] selectionArgs) {
+	public int delete(Uri uri, String selection, String[] selectionArgs)
+	{
 		// STUB Not implemented, because unnecessary in prototype
 		return 0;
 	}
 
 	@Override
-	public String getType(Uri uri) {
+	public String getType(Uri uri)
+	{
 		switch (sUriMatcher.match(uri)) {
 		case FRIENDS:
 			return FRIENDS_TYPE;
@@ -98,10 +106,10 @@ public class FriendProvider extends ContentProvider {
 	}
 
 	@Override
-	public Uri insert(Uri uri, ContentValues values) {
-		if (sUriMatcher.match(uri) != FRIENDS) {
-			throw new IllegalArgumentException("Unknown URI " + uri);
-		}
+	public Uri insert(Uri uri, ContentValues values)
+	{
+		if (sUriMatcher.match(uri) != FRIENDS) { throw new IllegalArgumentException(
+				"Unknown URI " + uri); }
 
 		SQLiteDatabase db = mDBHelper.getWritableDatabase();
 		long row = db.insert(DATABASE_TABLE, KEY_NAME, values);
@@ -116,7 +124,8 @@ public class FriendProvider extends ContentProvider {
 	}
 
 	@Override
-	public boolean onCreate() {
+	public boolean onCreate()
+	{
 		mDBHelper = new DBHelper(getContext());
 
 		return true;
@@ -124,7 +133,8 @@ public class FriendProvider extends ContentProvider {
 
 	@Override
 	public Cursor query(Uri uri, String[] projection, String selection,
-			String[] selectionArgs, String sortOrder) {
+			String[] selectionArgs, String sortOrder)
+	{
 		SQLiteQueryBuilder builder = new SQLiteQueryBuilder();
 		builder.setTables(DATABASE_TABLE);
 
@@ -147,7 +157,8 @@ public class FriendProvider extends ContentProvider {
 
 	@Override
 	public int update(Uri uri, ContentValues values, String selection,
-			String[] selectionArgs) {
+			String[] selectionArgs)
+	{
 		// STUB Not implemented, because unnecessary in prototype
 		return 0;
 	}

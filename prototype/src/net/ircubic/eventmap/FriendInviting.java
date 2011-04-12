@@ -13,17 +13,19 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
-public class FriendInviting extends ListActivity {
+public class FriendInviting extends ListActivity
+{
 
 	public static final int INVITE = 1;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState)
+	{
 		super.onCreate(savedInstanceState);
 		Cursor c = managedQuery(FriendProvider.CONTENT_URI, null, null, null,
 				null);
-		String from[] = { FriendProvider.KEY_NAME };
-		int to[] = { R.id.friendName };
+		String from[] = {FriendProvider.KEY_NAME};
+		int to[] = {R.id.friendName};
 		SimpleCursorAdapter ca = new SimpleCursorAdapter(this,
 				R.layout.friend_row, c, from, to);
 
@@ -31,7 +33,8 @@ public class FriendInviting extends ListActivity {
 		saveButton.setText("Invite");
 		saveButton.setOnClickListener(new OnClickListener() {
 
-			public void onClick(View v) {
+			public void onClick(View v)
+			{
 				finish();
 			}
 		});
@@ -42,7 +45,8 @@ public class FriendInviting extends ListActivity {
 		getListView().setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 	}
 
-	protected void setInvitees() {
+	protected void setInvitees()
+	{
 		ListView v = getListView();
 		SparseBooleanArray checkstates = v.getCheckedItemPositions();
 		ArrayList<Long> invited_friends = new ArrayList<Long>();
@@ -58,13 +62,15 @@ public class FriendInviting extends ListActivity {
 	}
 
 	@Override
-	protected void onPause() {
+	protected void onPause()
+	{
 		super.onPause();
 		setInvitees();
 	}
 
 	@Override
-	protected void onResume() {
+	protected void onResume()
+	{
 		// TODO Auto-generated method stub
 		super.onResume();
 	}

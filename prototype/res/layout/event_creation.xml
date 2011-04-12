@@ -15,7 +15,7 @@
 		<Button android:layout_height="wrap_content" android:id="@+id/editStartDate"
 			android:text="Start date" android:layout_width="wrap_content" />
 		<Button android:text="Start time" android:layout_height="wrap_content"
-		 android:id="@+id/editStartTime" android:layout_width="wrap_content"></Button>
+			android:id="@+id/editStartTime" android:layout_width="wrap_content"></Button>
 	</LinearLayout>
 	<TextView android:layout_height="wrap_content" android:id="@+id/textView3"
 		android:layout_width="wrap_content" android:textStyle="bold"
@@ -25,8 +25,9 @@
 		<Button android:layout_height="wrap_content" android:id="@+id/editEndDate"
 			android:text="End date" android:layout_width="wrap_content" />
 		<Button android:text="End time" android:layout_height="wrap_content"
-		 android:id="@+id/editEndTime" android:layout_width="wrap_content"></Button>
+			android:id="@+id/editEndTime" android:layout_width="wrap_content"></Button>
 	</LinearLayout>
-	<Button android:layout_width="wrap_content" android:id="@+id/inviteButton" android:layout_height="wrap_content" android:text="@string/invite_friend"></Button>
+	<Button android:layout_width="wrap_content" android:id="@+id/inviteButton"
+		android:layout_height="wrap_content" android:text="@string/invite_friend"></Button>
 
 </LinearLayout>
