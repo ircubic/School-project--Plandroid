@@ -7,11 +7,13 @@
 		android:textStyle="bold"></TextView>
 	<EditText android:layout_height="wrap_content" android:text="EditText"
 		android:layout_width="fill_parent" android:id="@+id/textEventTitle"></EditText>
+	<View android:id="@+id/view1" android:layout_height="1dp"
+		android:background="@drawable/separator" android:layout_width="wrap_content"></View>
 	<TextView android:layout_height="wrap_content" android:id="@+id/textView2"
 		android:layout_width="wrap_content" android:textStyle="bold"
 		android:text="@string/start_time"></TextView>
 	<LinearLayout android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:id="@+id/linearLayout1">
+		android:layout_height="wrap_content" android:id="@+id/linearLayout1" android:orientation="horizontal">
 		<Button android:layout_height="wrap_content" android:id="@+id/editStartDate"
 			android:text="Start date" android:layout_width="wrap_content" />
 		<Button android:text="Start time" android:layout_height="wrap_content"
@@ -21,16 +23,29 @@
 		android:layout_width="wrap_content" android:textStyle="bold"
 		android:text="@string/end_time"></TextView>
 	<LinearLayout android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:id="@+id/linearLayout2">
+		android:layout_height="wrap_content" android:id="@+id/linearLayout2"
+		android:orientation="horizontal">
 		<Button android:layout_height="wrap_content" android:id="@+id/editEndDate"
 			android:text="End date" android:layout_width="wrap_content" />
 		<Button android:text="End time" android:layout_height="wrap_content"
 			android:id="@+id/editEndTime" android:layout_width="wrap_content"></Button>
 	</LinearLayout>
-	<ListView android:layout_height="wrap_content" android:id="@+id/inviteeList"
-		android:background="@drawable/borders" android:layout_width="fill_parent"
-		android:padding="2sp" android:clickable="false"></ListView>
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:id="@+id/inviteeWrapper"
+		android:orientation="vertical" android:visibility="gone">
+		<View android:id="@+id/view1" android:layout_height="1dp"
+			android:layout_width="wrap_content" android:background="@drawable/separator"></View>
+		<ListView android:layout_height="wrap_content" android:id="@+id/inviteeList"
+			android:layout_width="fill_parent" android:padding="2sp"></ListView>
+	</LinearLayout>
+	<View android:id="@+id/view1" android:layout_height="1dp"
+		android:layout_width="wrap_content" android:background="@drawable/separator"></View>
 	<Button android:layout_width="wrap_content" android:id="@+id/inviteButton"
 		android:layout_height="wrap_content" android:text="@string/invite_friend"></Button>
+	<View android:id="@+id/view1" android:layout_height="1dp"
+		android:layout_width="wrap_content" android:background="@drawable/separator"></View>
+	<Button android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="@string/create_event"
+		android:id="@+id/eventCreateButton"></Button>
 
 </LinearLayout>

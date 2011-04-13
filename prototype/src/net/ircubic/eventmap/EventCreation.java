@@ -103,6 +103,7 @@ public class EventCreation extends Activity
 			SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
 					R.layout.friend_row2, c, from, to);
 			invitee_list.setAdapter(adapter);
+			((View)invitee_list.getParent()).setVisibility(View.VISIBLE);
 		}
 	}
 
