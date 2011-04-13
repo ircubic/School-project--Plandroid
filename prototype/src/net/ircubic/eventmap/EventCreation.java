@@ -9,6 +9,7 @@ import android.app.DatePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
+import android.app.TimePickerDialog.OnTimeSetListener;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -59,7 +60,7 @@ public class EventCreation extends Activity
 		end_date = set_up_button(R.id.editEndDate, END_DATE_DIALOG);
 		end_time = set_up_button(R.id.editEndTime, END_TIME_DIALOG);
 
-		Button inviteButton = (Button)findViewById(R.id.inviteButton);
+		final Button inviteButton = (Button)findViewById(R.id.inviteButton);
 		inviteButton.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v)
@@ -77,7 +78,7 @@ public class EventCreation extends Activity
 
 	private Button set_up_button(int id, final int dialog_id)
 	{
-		Button button = (Button)findViewById(id);
+		final Button button = (Button)findViewById(id);
 		button.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v)
 			{
@@ -94,13 +95,13 @@ public class EventCreation extends Activity
 		if (requestCode == FriendInviting.INVITE) {
 			super.onActivityResult(requestCode, resultCode, data);
 			invitees = (ArrayList<Long>)data.getSerializableExtra("invited");
-			String where = String.format("%s IN (%s)", FriendProvider.KEY_ID,
+			final String where = String.format("%s IN (%s)", FriendProvider.KEY_ID,
 					TextUtils.join(",", invitees));
-			Cursor c = managedQuery(FriendProvider.CONTENT_URI, null, where,
+			final Cursor c = managedQuery(FriendProvider.CONTENT_URI, null, where,
 					null, null);
-			String from[] = {FriendProvider.KEY_NAME};
-			int to[] = {R.id.friendName};
-			SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
+			final String from[] = {FriendProvider.KEY_NAME};
+			final int to[] = {R.id.friendName};
+			final SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
 					R.layout.friend_row2, c, from, to);
 			invitee_list.setAdapter(adapter);
 			((View)invitee_list.getParent()).setVisibility(View.VISIBLE);
@@ -115,21 +116,7 @@ public class EventCreation extends Activity
 		end_time.setText(tf.format(calendar_end.getTime()));
 	}
 
-	@Override
-	protected void onPause()
-	{
-		// TODO Auto-generated method stub
-		super.onPause();
-	}
-
-	@Override
-	protected void onResume()
-	{
-		// TODO Auto-generated method stub
-		super.onResume();
-	}
-
-	private TimePickerDialog.OnTimeSetListener mStartTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
+	private final TimePickerDialog.OnTimeSetListener mStartTimeSetListener = new OnTimeSetListener() {
 		public void onTimeSet(TimePicker view, int hourOfDay, int minute)
 		{
 			editing_calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
@@ -138,7 +125,7 @@ public class EventCreation extends Activity
 		}
 	};
 
-	private OnDateSetListener mStartDateSetListener = new OnDateSetListener() {
+	private final OnDateSetListener mStartDateSetListener = new OnDateSetListener() {
 
 		public void onDateSet(DatePicker view, int year, int monthOfYear,
 				int dayOfMonth)
@@ -175,7 +162,7 @@ public class EventCreation extends Activity
 
 	private void startInviting()
 	{
-		Intent intent = new Intent(this, FriendInviting.class);
+		final Intent intent = new Intent(this, FriendInviting.class);
 		startActivityForResult(intent, FriendInviting.INVITE);
 	}
 

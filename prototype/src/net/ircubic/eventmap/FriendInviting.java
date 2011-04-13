@@ -22,14 +22,14 @@ public class FriendInviting extends ListActivity
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		Cursor c = managedQuery(FriendProvider.CONTENT_URI, null, null, null,
+		final Cursor c = managedQuery(FriendProvider.CONTENT_URI, null, null, null,
 				null);
-		String from[] = {FriendProvider.KEY_NAME};
-		int to[] = {R.id.friendName};
-		SimpleCursorAdapter ca = new SimpleCursorAdapter(this,
+		final String from[] = {FriendProvider.KEY_NAME};
+		final int to[] = {R.id.friendName};
+		final SimpleCursorAdapter ca = new SimpleCursorAdapter(this,
 				R.layout.friend_row, c, from, to);
 
-		Button saveButton = new Button(this);
+		final Button saveButton = new Button(this);
 		saveButton.setText("Invite");
 		saveButton.setOnClickListener(new OnClickListener() {
 
@@ -48,16 +48,16 @@ public class FriendInviting extends ListActivity
 
 	protected void setInvitees()
 	{
-		ListView v = getListView();
-		SparseBooleanArray checkstates = v.getCheckedItemPositions();
-		ArrayList<Long> invited_friends = new ArrayList<Long>();
+		final ListView v = getListView();
+		final SparseBooleanArray checkstates = v.getCheckedItemPositions();
+		final ArrayList<Long> invited_friends = new ArrayList<Long>();
 		for (int i = 0; i < checkstates.size(); i++) {
 			if (checkstates.valueAt(i) == true) {
-				long id = v.getAdapter().getItemId(checkstates.keyAt(i));
+				final long id = v.getAdapter().getItemId(checkstates.keyAt(i));
 				invited_friends.add(id);
 			}
 		}
-		Intent i = new Intent();
+		final Intent i = new Intent();
 		i.putExtra("invited", invited_friends);
 		setResult(RESULT_OK, i);
 	}

@@ -14,7 +14,7 @@ public class EventMap extends Activity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-		Button startButton = (Button)findViewById(R.id.scenarioStartButton);
+		final Button startButton = (Button)findViewById(R.id.scenarioStartButton);
 		startButton.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v)
@@ -27,7 +27,7 @@ public class EventMap extends Activity
 
 	protected void startScenario()
 	{
-		Intent intent = new Intent(this, EventCreation.class);
+		final Intent intent = new Intent(this, EventCreation.class);
 		startActivity(intent);
 
 	}

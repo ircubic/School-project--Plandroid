@@ -11,10 +11,10 @@
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
-		<activity android:name=".EventCreation"></activity>
+		<activity android:name=".EventCreation" />
 		<provider android:authorities="net.ircubic.eventmap.friendprovider"
-			android:name="FriendProvider"></provider>
-		<activity android:name=".FriendInviting"></activity>
+			android:name="FriendProvider" />
+		<activity android:name=".FriendInviting" />
 
 	</application>
 </manifest>

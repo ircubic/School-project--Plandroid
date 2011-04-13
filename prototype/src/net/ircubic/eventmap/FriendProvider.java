@@ -54,13 +54,13 @@ public class FriendProvider extends ContentProvider
 			db.execSQL(String
 					.format("CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT, %s TEXT, %s TEXT);",
 							DATABASE_TABLE, KEY_ID, KEY_NAME, KEY_PIC));
-			String mock_vals[][] = { {"Mother Spring", "derp"},
+			final String mock_vals[][] = { {"Mother Spring", "derp"},
 					{"Father Winter", "doop"}};
 
-			ContentValues values = new ContentValues();
+			final ContentValues values = new ContentValues();
 			try {
 				db.beginTransaction();
-				for (String[] val : mock_vals) {
+				for (final String[] val : mock_vals) {
 					values.put(KEY_NAME, val[0]);
 					values.put(KEY_PIC, val[1]);
 					db.insert(DATABASE_TABLE, null, values);
@@ -68,7 +68,7 @@ public class FriendProvider extends ContentProvider
 				}
 				db.setTransactionSuccessful();
 			}
-			catch (SQLException e) {}
+			catch (final SQLException e) {}
 			finally {
 				db.endTransaction();
 			}
@@ -111,10 +111,10 @@ public class FriendProvider extends ContentProvider
 		if (sUriMatcher.match(uri) != FRIENDS) { throw new IllegalArgumentException(
 				"Unknown URI " + uri); }
 
-		SQLiteDatabase db = mDBHelper.getWritableDatabase();
-		long row = db.insert(DATABASE_TABLE, KEY_NAME, values);
+		final SQLiteDatabase db = mDBHelper.getWritableDatabase();
+		final long row = db.insert(DATABASE_TABLE, KEY_NAME, values);
 		if (row > 0) {
-			Uri newUri = ContentUris.withAppendedId(CONTENT_URI, row);
+			final Uri newUri = ContentUris.withAppendedId(CONTENT_URI, row);
 			getContext().getContentResolver().notifyChange(newUri, null);
 
 			return newUri;
@@ -135,7 +135,7 @@ public class FriendProvider extends ContentProvider
 	public Cursor query(Uri uri, String[] projection, String selection,
 			String[] selectionArgs, String sortOrder)
 	{
-		SQLiteQueryBuilder builder = new SQLiteQueryBuilder();
+		final SQLiteQueryBuilder builder = new SQLiteQueryBuilder();
 		builder.setTables(DATABASE_TABLE);
 
 		switch (sUriMatcher.match(uri)) {
@@ -148,8 +148,8 @@ public class FriendProvider extends ContentProvider
 			throw new IllegalArgumentException("Unknown URI " + uri);
 		}
 
-		SQLiteDatabase db = mDBHelper.getWritableDatabase();
-		Cursor c = builder.query(db, projection, selection, selectionArgs,
+		final SQLiteDatabase db = mDBHelper.getWritableDatabase();
+		final Cursor c = builder.query(db, projection, selection, selectionArgs,
 				null, null, sortOrder);
 		c.setNotificationUri(getContext().getContentResolver(), uri);
 		return c;
