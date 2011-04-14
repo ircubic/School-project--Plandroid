@@ -1,58 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_height="wrap_content"
-	android:fillViewport="false" android:layout_width="fill_parent">
-	<LinearLayout android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:orientation="vertical">
-		<TextView android:layout_height="wrap_content" android:id="@+id/textView1"
-			android:layout_width="wrap_content" android:text="@string/event_title"
-			android:textStyle="bold" />
-		<EditText android:layout_height="wrap_content" android:text="EditText"
-			android:layout_width="fill_parent" android:id="@+id/textEventTitle" />
-		<View android:id="@+id/view1" android:layout_height="1dp"
-			android:background="@drawable/separator" android:layout_width="wrap_content" />
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical">
+	<TextView android:layout_height="wrap_content" android:id="@+id/textView1"
+		android:layout_width="wrap_content" android:text="@string/event_title"
+		android:textStyle="bold" />
+	<EditText android:layout_height="wrap_content" android:text="EditText"
+		android:layout_width="fill_parent" android:id="@+id/textEventTitle" />
+	<View android:id="@+id/view1" android:layout_height="1dp"
+		android:background="@drawable/separator" android:layout_width="wrap_content" />
+	<LinearLayout android:layout_height="wrap_content"
+		android:layout_width="fill_parent" android:id="@+id/dateBox"
+		android:orientation="vertical">
+		<TextView android:text="@string/start_time"
+			android:textStyle="bold" android:layout_width="wrap_content"
+			android:id="@+id/textView2" android:layout_height="wrap_content"></TextView>
 		<LinearLayout android:layout_height="wrap_content"
-			android:layout_width="fill_parent" android:id="@+id/dateBox"
-			android:orientation="vertical">
-			<TextView android:text="@string/start_time"
-				android:textStyle="bold" android:layout_width="wrap_content"
-				android:id="@+id/textView2" android:layout_height="wrap_content"></TextView>
-			<LinearLayout android:layout_height="wrap_content"
-				android:layout_width="fill_parent" android:id="@+id/LinearLayout01"
-				android:orientation="horizontal">
-				<Button android:layout_width="wrap_content" android:id="@+id/editStartDate"
-					android:layout_height="wrap_content" android:text="Start date"></Button>
-				<Button android:layout_width="wrap_content" android:id="@+id/editStartTime"
-					android:layout_height="wrap_content" android:text="Start time"></Button>
-			</LinearLayout>
-			<TextView android:text="@string/end_time" android:textStyle="bold"
-				android:layout_width="wrap_content" android:id="@+id/textView3"
-				android:layout_height="wrap_content"></TextView>
-			<LinearLayout android:layout_height="wrap_content"
-				android:layout_width="fill_parent" android:id="@+id/linearLayout2"
-				android:orientation="horizontal">
-				<Button android:layout_width="wrap_content" android:id="@+id/editEndDate"
-					android:layout_height="wrap_content" android:text="End date"></Button>
-				<Button android:layout_width="wrap_content" android:id="@+id/editEndTime"
-					android:layout_height="wrap_content" android:text="End time"></Button>
-			</LinearLayout>
+			android:layout_width="fill_parent" android:id="@+id/LinearLayout01"
+			android:orientation="horizontal">
+			<Button android:layout_width="wrap_content" android:id="@+id/editStartDate"
+				android:layout_height="wrap_content" android:text="Start date"></Button>
+			<Button android:layout_width="wrap_content" android:id="@+id/editStartTime"
+				android:layout_height="wrap_content" android:text="Start time"></Button>
 		</LinearLayout>
-		<LinearLayout android:layout_width="fill_parent"
-			android:layout_height="wrap_content" android:id="@+id/inviteeWrapper"
-			android:orientation="vertical" android:visibility="gone">
-			<View android:id="@+id/view1" android:layout_height="1dp"
-				android:layout_width="wrap_content" android:background="@drawable/separator" />
-			<ListView android:layout_height="wrap_content" android:id="@+id/inviteeList"
-				android:layout_width="fill_parent" android:padding="2sp" />
+		<TextView android:text="@string/end_time" android:textStyle="bold"
+			android:layout_width="wrap_content" android:id="@+id/textView3"
+			android:layout_height="wrap_content"></TextView>
+		<LinearLayout android:layout_height="wrap_content"
+			android:layout_width="fill_parent" android:id="@+id/linearLayout2"
+			android:orientation="horizontal">
+			<Button android:layout_width="wrap_content" android:id="@+id/editEndDate"
+				android:layout_height="wrap_content" android:text="End date"></Button>
+			<Button android:layout_width="wrap_content" android:id="@+id/editEndTime"
+				android:layout_height="wrap_content" android:text="End time"></Button>
 		</LinearLayout>
-		<View android:id="@+id/view1" android:layout_height="1dp"
-			android:layout_width="wrap_content" android:background="@drawable/separator" />
-		<Button android:layout_width="wrap_content" android:id="@+id/inviteButton"
-			android:layout_height="wrap_content" android:text="@string/invite_friend" />
-		<View android:id="@+id/view1" android:layout_height="1dp"
-			android:layout_width="wrap_content" android:background="@drawable/separator" />
-		<Button android:layout_width="fill_parent"
-			android:layout_height="wrap_content" android:text="@string/create_event"
-			android:id="@+id/eventCreateButton" />
 	</LinearLayout>
-</ScrollView>
+	<View android:id="@+id/view1" android:layout_height="1dp"
+		android:layout_width="wrap_content" android:background="@drawable/separator" />
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="0dp" android:id="@+id/inviteeWrapper"
+		android:orientation="vertical" android:visibility="gone"
+		android:layout_weight="1">
+		<ListView android:layout_height="0dp" android:id="@+id/inviteeList"
+			android:layout_width="fill_parent" android:padding="2sp"
+			android:layout_weight="1" />
+	</LinearLayout>
+	<View android:id="@+id/view1" android:layout_height="1dp"
+		android:layout_width="wrap_content" android:background="@drawable/separator" />
+	<Button android:layout_width="wrap_content" android:id="@+id/inviteButton"
+		android:layout_height="wrap_content" android:text="@string/invite_friend" />
+	<View android:id="@+id/view1" android:layout_height="1dp"
+		android:layout_width="wrap_content" android:background="@drawable/separator" />
+	<Button android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="@string/create_event"
+		android:id="@+id/eventCreateButton" />
+</LinearLayout>
