@@ -169,18 +169,21 @@ public class EventCreation extends Activity
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data)
 	{
+		super.onActivityResult(requestCode, resultCode, data);
 		if (requestCode == FriendInviting.INVITE) {
-			super.onActivityResult(requestCode, resultCode, data);
 			invitees = (ArrayList<Long>)data.getSerializableExtra("invited");
+
 			final String where = String.format("%s IN (%s)",
 					FriendProvider.KEY_ID, TextUtils.join(",", invitees));
 			final Cursor c = managedQuery(FriendProvider.CONTENT_URI, null,
 					where, null, null);
+
 			final String from[] = {FriendProvider.KEY_NAME};
 			final int to[] = {R.id.friendName};
 			final SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
 					R.layout.friend_row2, c, from, to);
 			invitee_list.setAdapter(adapter);
+
 			((View)invitee_list.getParent()).setVisibility(View.VISIBLE);
 		}
 	}
