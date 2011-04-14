@@ -16,7 +16,6 @@ public class FriendProvider extends ContentProvider
 {
 
 	public static final String KEY_NAME = "name";
-	public static final String KEY_PIC = "pic";
 	public static final String KEY_ID = "_id";
 
 	private static final String AUTHORITY = "net.ircubic.eventmap.friendprovider";
@@ -52,17 +51,17 @@ public class FriendProvider extends ContentProvider
 		public void onCreate(SQLiteDatabase db)
 		{
 			db.execSQL(String
-					.format("CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT, %s TEXT, %s TEXT);",
-							DATABASE_TABLE, KEY_ID, KEY_NAME, KEY_PIC));
-			final String mock_vals[][] = { {"Mother Spring", "derp"},
-					{"Father Winter", "doop"}};
+					.format("CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT, %s TEXT);",
+							DATABASE_TABLE, KEY_ID, KEY_NAME));
+			final String mock_vals[] = {"Mother Spring", "Father Winter",
+					"Moon baby", "Baby Jesus", "Jorge the second",
+					"Your mother", "Transient hobo", "Xyzzy"};
 
 			final ContentValues values = new ContentValues();
 			try {
 				db.beginTransaction();
-				for (final String[] val : mock_vals) {
-					values.put(KEY_NAME, val[0]);
-					values.put(KEY_PIC, val[1]);
+				for (final String val : mock_vals) {
+					values.put(KEY_NAME, val);
 					db.insert(DATABASE_TABLE, null, values);
 					values.clear();
 				}
@@ -149,8 +148,8 @@ public class FriendProvider extends ContentProvider
 		}
 
 		final SQLiteDatabase db = mDBHelper.getWritableDatabase();
-		final Cursor c = builder.query(db, projection, selection, selectionArgs,
-				null, null, sortOrder);
+		final Cursor c = builder.query(db, projection, selection,
+				selectionArgs, null, null, sortOrder);
 		c.setNotificationUri(getContext().getContentResolver(), uri);
 		return c;
 	}
