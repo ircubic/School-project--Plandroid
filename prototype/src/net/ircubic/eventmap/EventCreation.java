@@ -1,5 +1,6 @@
 package net.ircubic.eventmap;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -170,21 +171,25 @@ public class EventCreation extends Activity
 	protected void onActivityResult(int requestCode, int resultCode, Intent data)
 	{
 		super.onActivityResult(requestCode, resultCode, data);
-		if (requestCode == FriendInviting.INVITE) {
-			invitees = (ArrayList<Long>)data.getSerializableExtra("invited");
+		if (requestCode == FriendInviting.INVITE
+				&& resultCode == Activity.RESULT_OK) {
+			final Serializable x = data.getSerializableExtra("invited");
 
-			final String where = String.format("%s IN (%s)",
-					FriendProvider.KEY_ID, TextUtils.join(",", invitees));
-			final Cursor c = managedQuery(FriendProvider.CONTENT_URI, null,
-					where, null, null);
+			if (x != null) {
+				invitees = (ArrayList<Long>)x;
+				final String where = String.format("%s IN (%s)",
+						FriendProvider.KEY_ID, TextUtils.join(",", invitees));
+				final Cursor c = managedQuery(FriendProvider.CONTENT_URI, null,
+						where, null, null);
 
-			final String from[] = {FriendProvider.KEY_NAME};
-			final int to[] = {R.id.friendName};
-			final SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
-					R.layout.friend_row2, c, from, to);
-			invitee_list.setAdapter(adapter);
+				final String from[] = {FriendProvider.KEY_NAME};
+				final int to[] = {R.id.friendName};
+				final SimpleCursorAdapter adapter = new SimpleCursorAdapter(
+						this, R.layout.friend_row2, c, from, to);
+				invitee_list.setAdapter(adapter);
 
-			((View)invitee_list.getParent()).setVisibility(View.VISIBLE);
+				((View)invitee_list.getParent()).setVisibility(View.VISIBLE);
+			}
 		}
 	}
 
