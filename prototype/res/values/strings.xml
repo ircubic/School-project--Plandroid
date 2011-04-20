@@ -13,4 +13,6 @@
     <string name="end_time">End time:</string>
     <string name="invite_friend">Invite Friends</string>
     <string name="create_event">Create event</string>
+    <string name="dismiss_conflict">Remove</string>
+    <string name="empty"></string>
 </resources>
