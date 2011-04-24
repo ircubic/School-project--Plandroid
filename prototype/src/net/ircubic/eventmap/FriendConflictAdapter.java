@@ -17,13 +17,10 @@ public class FriendConflictAdapter extends BaseAdapter
 	private final LayoutInflater mInflater;
 	private final FriendConflict[] mData;
 
-	private final int HOLDER_TAG = 1;
-	private final int POSITION_TAG = 2;
-
 	public FriendConflictAdapter(final Activity context,
 			ArrayList<FriendConflict> data) {
 		mInflater = LayoutInflater.from(context);
-		mData = (FriendConflict[])data.toArray();
+		mData = (FriendConflict[])data.toArray(new FriendConflict[data.size()]);
 	}
 
 	public int getCount()
@@ -63,12 +60,12 @@ public class FriendConflictAdapter extends BaseAdapter
 
 			holder.removeButton.setOnClickListener(mRemoveListener);
 
-			convertView.setTag(HOLDER_TAG, holder);
+			convertView.setTag(R.id.conflict_holder, holder);
 		} else {
-			holder = (ViewHolder)convertView.getTag(HOLDER_TAG);
+			holder = (ViewHolder)convertView.getTag(R.id.conflict_holder);
 		}
 
-		convertView.setTag(POSITION_TAG, position);
+		convertView.setTag(R.id.conflict_position, position);
 		final FriendConflict friend = mData[position];
 		holder.name.setText(friend.name);
 		holder.message.setText(friend.message);
@@ -77,7 +74,7 @@ public class FriendConflictAdapter extends BaseAdapter
 			// TODO: Strike-out text
 		}
 
-		return null;
+		return convertView;
 	}
 
 	private OnClickListener mRemoveListener = new OnClickListener() {
@@ -86,7 +83,7 @@ public class FriendConflictAdapter extends BaseAdapter
 		{
 
 			Integer position = (Integer)((View)v.getParent())
-					.getTag(POSITION_TAG);
+					.getTag(R.id.conflict_position);
 			mData[position].dismissed = !mData[position].dismissed;
 		}
 	};

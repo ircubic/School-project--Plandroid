@@ -3,6 +3,7 @@ package net.ircubic.eventmap;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Random;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -56,6 +57,7 @@ public class EventCreation extends Activity
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
+
 		setContentView(R.layout.event_creation);
 
 		df = DateFormat.getDateFormat(getApplicationContext());
@@ -120,7 +122,7 @@ public class EventCreation extends Activity
 		calendar_end = Calendar.getInstance();
 		calendar_end.add(Calendar.HOUR, 1);
 
-		conflict_percentage = 30;
+		conflict_percentage = 33;
 		if (savedInstanceState != null) {
 			conflict_percentage = savedInstanceState.getInt("conflicts", 30);
 		}
@@ -143,7 +145,20 @@ public class EventCreation extends Activity
 
 	private void handleConflict()
 	{
-		// TODO: launch conflict handling activity here
+		final Intent intent = new Intent(this, ConflictResolution.class);
+		ArrayList<Long> ids = new ArrayList<Long>();
+		final SimpleCursorAdapter ca = (SimpleCursorAdapter)invitee_list.getAdapter();
+		final Cursor c = ca.getCursor();
+		final int nums = c.getCount();
+		final long amount = Math.round(nums*(conflict_percentage/100.0));
+		final Random rand = new Random();
+		for(int i = 0; i < amount; i++) {
+			final int position = rand.nextInt(nums);
+			c.moveToPosition(position);
+			ids.add(c.getLong(0));
+		}
+		intent.putExtra("conflicts", ids);
+		startActivity(intent);
 	}
 
 	private void createAndFinish()
