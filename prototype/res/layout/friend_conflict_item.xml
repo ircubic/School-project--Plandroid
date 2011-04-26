@@ -16,5 +16,5 @@
 		android:layout_alignParentRight="true" android:text="@string/dismiss_conflict"
 		android:layout_height="40dp" android:paddingTop="1dp"
 		android:paddingBottom="1dp"
-		android:id="@+id/removeConflict" android:layout_alignBaseline="@+id/conflictMessage"></Button>
+		android:id="@+id/removeConflict" android:layout_alignBaseline="@+id/conflictMessage" android:onClick="x"></Button>
 </RelativeLayout>

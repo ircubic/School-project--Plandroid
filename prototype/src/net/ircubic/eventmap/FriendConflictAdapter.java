@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
@@ -58,35 +57,25 @@ public class FriendConflictAdapter extends BaseAdapter
 			holder.removeButton = (Button)convertView
 					.findViewById(R.id.removeConflict);
 
-			holder.removeButton.setOnClickListener(mRemoveListener);
-
 			convertView.setTag(R.id.conflict_holder, holder);
 		} else {
 			holder = (ViewHolder)convertView.getTag(R.id.conflict_holder);
 		}
 
-		convertView.setTag(R.id.conflict_position, position);
+		
 		final FriendConflict friend = mData[position];
 		holder.name.setText(friend.name);
 		holder.message.setText(friend.message);
-
+		convertView.setTag(R.id.conflict_position, friend);
+		
 		if (friend.dismissed) {
-			// TODO: Strike-out text
+			convertView.setBackgroundColor(0xFFFF0000);
+		} else {
+			convertView.setBackgroundColor(0x00000000);
 		}
 
 		return convertView;
 	}
-
-	private OnClickListener mRemoveListener = new OnClickListener() {
-
-		public void onClick(View v)
-		{
-
-			Integer position = (Integer)((View)v.getParent())
-					.getTag(R.id.conflict_position);
-			mData[position].dismissed = !mData[position].dismissed;
-		}
-	};
 
 	static class ViewHolder
 	{

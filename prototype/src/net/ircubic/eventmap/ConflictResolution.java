@@ -8,9 +8,14 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
 
-public class ConflictResolution extends ListActivity {
+public class ConflictResolution extends ListActivity  {
 	private ArrayList<FriendConflict> conflicts;
+	private FriendConflictAdapter adapter;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +37,21 @@ public class ConflictResolution extends ListActivity {
 				final String name = c.getString(1);
 				conflicts.add(new FriendConflict(id, name));
 			}
-			
-			setListAdapter(new FriendConflictAdapter(this, conflicts));
+			adapter = new FriendConflictAdapter(this, conflicts);
+			setListAdapter(adapter);
 		}
 		
 		super.onCreate(savedInstanceState);
 	}
 
+	public void x(View v)
+	{
+		Button removeButton = (Button) v;
+		View parent = (View)removeButton.getParent();
+		FriendConflict f = (FriendConflict)parent.getTag(R.id.conflict_position);
+		f.dismissed = !f.dismissed;
+		adapter.notifyDataSetChanged();
+	}
+
+	
 }
