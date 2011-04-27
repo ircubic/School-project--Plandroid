@@ -42,6 +42,7 @@ public class FriendInviting extends ListActivity
 		getListView().addFooterView(saveButton);
 
 		setListAdapter(ca);
+		setTitle(R.string.title_invite_friends);
 		getListView().setItemsCanFocus(false);
 		getListView().setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 	}

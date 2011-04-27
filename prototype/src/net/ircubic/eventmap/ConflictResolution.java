@@ -49,6 +49,7 @@ public class ConflictResolution extends ListActivity
 
 		adapter = new FriendConflictAdapter(this, conflicts);
 		setListAdapter(adapter);
+		setTitle(R.string.title_resolve_conflict);
 
 		super.onCreate(savedInstanceState);
 	}

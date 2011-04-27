@@ -59,6 +59,7 @@ public class EventCreation extends Activity
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.event_creation);
+		setTitle(R.string.title_create_event);
 
 		df = DateFormat.getDateFormat(getApplicationContext());
 		tf = DateFormat.getTimeFormat(getApplicationContext());
