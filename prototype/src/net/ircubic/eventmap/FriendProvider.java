@@ -53,9 +53,10 @@ public class FriendProvider extends ContentProvider
 			db.execSQL(String
 					.format("CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT, %s TEXT);",
 							DATABASE_TABLE, KEY_ID, KEY_NAME));
-			final String mock_vals[] = {"Mother Spring", "Father Winter",
-					"Moon baby", "Baby Jesus", "Jorge the second",
-					"Your mother", "Transient hobo", "Xyzzy"};
+
+			final String mock_vals[] = {"Case", "Armitage", "Molly Millions",
+					"Maelcum", "Peter Riviera", "Wintermute", "Lady 3Jane",
+					"Dixie Flatline", "Neuromancer"};
 
 			final ContentValues values = new ContentValues();
 			try {
