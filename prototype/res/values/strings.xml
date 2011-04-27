@@ -14,7 +14,9 @@
     <string name="create_event">Create event</string>
     <string name="dismiss_conflict">Remove</string>
     <string name="empty"></string>
-    <string name="title_resolve_conflict">Schedule conflict resolution</string>
+    <string name="title_resolve_conflict">Guests with conflicting events</string>
     <string name="title_create_event">Create Event</string>
     <string name="title_invite_friends">Invite Friends</string>
+    <string name="conflict_description">You may remove guests from the invite list by clicking the X here.</string>
+    <string name="conflict_finish_button">Done</string>
 </resources>

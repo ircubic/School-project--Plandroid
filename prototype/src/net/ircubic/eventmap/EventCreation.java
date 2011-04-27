@@ -162,7 +162,7 @@ public class EventCreation extends Activity
 			ids.add(c.getLong(0));
 		}
 		intent.putExtra("conflicts", ids);
-		startActivity(intent);
+		startActivityForResult(intent, ConflictResolution.RESOLVE);
 	}
 
 	private void createAndFinish()
@@ -191,8 +191,11 @@ public class EventCreation extends Activity
 			final int resultCode, final Intent data)
 	{
 		super.onActivityResult(requestCode, resultCode, data);
-		if (requestCode == FriendInviting.INVITE
-				&& resultCode == Activity.RESULT_OK) {
+
+		if (resultCode != Activity.RESULT_OK)
+			return;
+
+		if (requestCode == FriendInviting.INVITE) {
 			final Serializable x = data.getSerializableExtra("invited");
 
 			if (x != null) {
@@ -210,6 +213,8 @@ public class EventCreation extends Activity
 
 				((View)invitee_list.getParent()).setVisibility(View.VISIBLE);
 			}
+		} else if (requestCode == ConflictResolution.RESOLVE) {
+			createAndFinish();
 		}
 	}
 

@@ -9,11 +9,17 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class ConflictResolution extends ListActivity
 {
+
+	public static final int RESOLVE = 0;
+
 	private FriendConflictAdapter adapter;
 
 	@Override
@@ -47,11 +53,34 @@ public class ConflictResolution extends ListActivity
 			finish();
 		}
 
+		final TextView desctext = new TextView(this);
+		desctext.setText(R.string.conflict_description);
+		getListView().addHeaderView(desctext);
+
+		final Button finish = new Button(this);
+		finish.setText(R.string.conflict_finish_button);
+		finish.setOnClickListener(new OnClickListener() {
+
+			public void onClick(final View v)
+			{
+				finishResolving();
+			}
+		});
+		getListView().addFooterView(finish);
+
 		adapter = new FriendConflictAdapter(this, conflicts);
 		setListAdapter(adapter);
 		setTitle(R.string.title_resolve_conflict);
 
 		super.onCreate(savedInstanceState);
+	}
+
+	protected void finishResolving()
+	{
+		// TODO Finish resolving
+		setResult(RESULT_OK);
+		finish();
+
 	}
 
 	public void removeClicked(final View v)
