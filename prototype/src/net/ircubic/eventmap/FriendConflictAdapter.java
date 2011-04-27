@@ -7,8 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class FriendConflictAdapter extends BaseAdapter
@@ -53,9 +52,9 @@ public class FriendConflictAdapter extends BaseAdapter
 
 			holder = new ViewHolder();
 			holder.name = (TextView)convertView.findViewById(R.id.friendName);
-			holder.message = (EditText)convertView
+			holder.message = (TextView)convertView
 					.findViewById(R.id.conflictMessage);
-			holder.removeButton = (Button)convertView
+			holder.removeButton = (ImageButton)convertView
 					.findViewById(R.id.removeConflict);
 
 			convertView.setTag(R.id.conflict_holder, holder);
@@ -65,7 +64,7 @@ public class FriendConflictAdapter extends BaseAdapter
 
 		final FriendConflict friend = mData[position];
 		holder.name.setText(friend.name);
-		holder.message.setText(friend.message);
+		// holder.message.setText(friend.message);
 		convertView.setTag(R.id.conflict_position, friend);
 
 		if (friend.dismissed) {
@@ -80,8 +79,8 @@ public class FriendConflictAdapter extends BaseAdapter
 	static class ViewHolder
 	{
 		TextView name;
-		EditText message;
-		Button removeButton;
+		TextView message;
+		ImageButton removeButton;
 	}
 
 }

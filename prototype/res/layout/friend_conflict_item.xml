@@ -3,20 +3,22 @@
 	android:layout_width="fill_parent" android:layout_height="fill_parent">
 	<ImageView android:layout_height="wrap_content" android:src="@drawable/img"
 		android:id="@+id/imageView1" android:layout_width="wrap_content"
-		android:layout_alignParentLeft="true" android:layout_centerVertical="true"></ImageView>
+		android:layout_alignParentLeft="true" android:layout_centerVertical="true" 
+		android:paddingRight="5dp"/>
 	<TextView android:layout_height="wrap_content" android:text="TextView"
 		android:textAppearance="?android:attr/textAppearanceMedium"
 		android:layout_toRightOf="@+id/imageView1" android:layout_width="wrap_content"
-		android:layout_toLeftOf="@+id/removeConflict" android:id="@+id/friendName"></TextView>
+		android:layout_toLeftOf="@+id/removeConflict" android:id="@+id/friendName" />
 	<!-- android:layout_alignTop="@+id/imageView1" -->
-	<EditText android:layout_below="@+id/friendName"
+	<TextView android:layout_below="@+id/friendName"
 		android:layout_height="wrap_content" android:id="@+id/conflictMessage"
-		android:text="@string/empty" android:layout_width="wrap_content"
+		android:text="event: 18:00-20:00" android:layout_width="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceSmall"
 		android:layout_toLeftOf="@+id/removeConflict"
-		android:layout_alignLeft="@+id/friendName"></EditText>
-	<Button android:layout_width="wrap_content"
-		android:layout_alignParentRight="true" android:text="@string/dismiss_conflict"
-		android:layout_height="40dp" android:paddingTop="1dp"
-		android:paddingBottom="1dp" android:id="@+id/removeConflict"
-		android:layout_alignBaseline="@+id/conflictMessage" android:onClick="x"></Button>
+		android:layout_alignLeft="@+id/friendName" />
+	<ImageButton android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:layout_alignParentRight="true"
+		android:src="@android:drawable/ic_delete" android:id="@+id/removeConflict"
+		android:layout_centerVertical="true" android:onClick="removeClicked"
+		android:paddingLeft="5dp" />
 </RelativeLayout>

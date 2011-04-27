@@ -9,7 +9,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 public class ConflictResolution extends ListActivity
 {
@@ -43,9 +43,9 @@ public class ConflictResolution extends ListActivity
 		super.onCreate(savedInstanceState);
 	}
 
-	public void x(final View v)
+	public void removeClicked(final View v)
 	{
-		final Button removeButton = (Button)v;
+		final ImageButton removeButton = (ImageButton)v;
 		final View parent = (View)removeButton.getParent();
 		final FriendConflict f = (FriendConflict)parent
 				.getTag(R.id.conflict_position);
