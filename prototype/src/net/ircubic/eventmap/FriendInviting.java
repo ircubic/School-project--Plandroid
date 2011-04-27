@@ -19,11 +19,11 @@ public class FriendInviting extends ListActivity
 	public static final int INVITE = 1;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState)
+	protected void onCreate(final Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-		final Cursor c = managedQuery(FriendProvider.CONTENT_URI, null, null, null,
-				null);
+		final Cursor c = managedQuery(FriendProvider.CONTENT_URI, null, null,
+				null, null);
 		final String from[] = {FriendProvider.KEY_NAME};
 		final int to[] = {R.id.friendName};
 		final SimpleCursorAdapter ca = new SimpleCursorAdapter(this,
@@ -33,7 +33,7 @@ public class FriendInviting extends ListActivity
 		saveButton.setText("Invite");
 		saveButton.setOnClickListener(new OnClickListener() {
 
-			public void onClick(View v)
+			public void onClick(final View v)
 			{
 				setInvitees();
 				finish();

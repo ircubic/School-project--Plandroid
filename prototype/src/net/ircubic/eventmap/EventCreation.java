@@ -54,7 +54,7 @@ public class EventCreation extends Activity
 	static final int END_TIME_DIALOG = 3;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState)
+	protected void onCreate(final Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 
@@ -70,13 +70,14 @@ public class EventCreation extends Activity
 		end_time = set_up_button(R.id.editEndTime, END_TIME_DIALOG);
 		event_title = (TextView)findViewById(R.id.textEventTitle);
 
-		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		final AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setMessage("Most guests are busy then, want to reschedule?")
 				.setTitle("Schedule conflict!")
 				.setCancelable(false)
 				.setPositiveButton("Reschedule",
 						new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog, int id)
+							public void onClick(final DialogInterface dialog,
+									final int id)
 							{
 								findViewById(R.id.dateBox).setBackgroundColor(
 										0xFF660000);
@@ -85,15 +86,16 @@ public class EventCreation extends Activity
 						})
 				.setNeutralButton("Review",
 						new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog,
-									int which)
+							public void onClick(final DialogInterface dialog,
+									final int which)
 							{
 								handleConflict();
 							}
 						})
 				.setNegativeButton("Ignore",
 						new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog, int id)
+							public void onClick(final DialogInterface dialog,
+									final int id)
 							{
 								createAndFinish();
 							}
@@ -103,7 +105,7 @@ public class EventCreation extends Activity
 		final Button inviteButton = (Button)findViewById(R.id.inviteButton);
 		inviteButton.setOnClickListener(new OnClickListener() {
 
-			public void onClick(View v)
+			public void onClick(final View v)
 			{
 				startInviting();
 			}
@@ -112,7 +114,7 @@ public class EventCreation extends Activity
 		final Button createEventButton = (Button)findViewById(R.id.eventCreateButton);
 		createEventButton.setOnClickListener(new OnClickListener() {
 
-			public void onClick(View v)
+			public void onClick(final View v)
 			{
 				checkConflictAndCreate();
 			}
@@ -146,13 +148,14 @@ public class EventCreation extends Activity
 	private void handleConflict()
 	{
 		final Intent intent = new Intent(this, ConflictResolution.class);
-		ArrayList<Long> ids = new ArrayList<Long>();
-		final SimpleCursorAdapter ca = (SimpleCursorAdapter)invitee_list.getAdapter();
+		final ArrayList<Long> ids = new ArrayList<Long>();
+		final SimpleCursorAdapter ca = (SimpleCursorAdapter)invitee_list
+				.getAdapter();
 		final Cursor c = ca.getCursor();
 		final int nums = c.getCount();
-		final long amount = Math.round(nums*(conflict_percentage/100.0));
+		final long amount = Math.round(nums * (conflict_percentage / 100.0));
 		final Random rand = new Random();
-		for(int i = 0; i < amount; i++) {
+		for (int i = 0; i < amount; i++) {
 			final int position = rand.nextInt(nums);
 			c.moveToPosition(position);
 			ids.add(c.getLong(0));
@@ -169,11 +172,11 @@ public class EventCreation extends Activity
 		finish();
 	}
 
-	private Button set_up_button(int id, final int dialog_id)
+	private Button set_up_button(final int id, final int dialog_id)
 	{
 		final Button button = (Button)findViewById(id);
 		button.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v)
+			public void onClick(final View v)
 			{
 				showDialog(dialog_id);
 			}
@@ -183,7 +186,8 @@ public class EventCreation extends Activity
 
 	@SuppressWarnings("unchecked")
 	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data)
+	protected void onActivityResult(final int requestCode,
+			final int resultCode, final Intent data)
 	{
 		super.onActivityResult(requestCode, resultCode, data);
 		if (requestCode == FriendInviting.INVITE
@@ -217,7 +221,8 @@ public class EventCreation extends Activity
 	}
 
 	private final OnTimeSetListener mStartTimeSetListener = new OnTimeSetListener() {
-		public void onTimeSet(TimePicker view, int hourOfDay, int minute)
+		public void onTimeSet(final TimePicker view, final int hourOfDay,
+				final int minute)
 		{
 			editing_calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
 			editing_calendar.set(Calendar.MINUTE, minute);
@@ -227,8 +232,8 @@ public class EventCreation extends Activity
 
 	private final OnDateSetListener mStartDateSetListener = new OnDateSetListener() {
 
-		public void onDateSet(DatePicker view, int year, int monthOfYear,
-				int dayOfMonth)
+		public void onDateSet(final DatePicker view, final int year,
+				final int monthOfYear, final int dayOfMonth)
 		{
 			editing_calendar.set(Calendar.YEAR, year);
 			editing_calendar.set(Calendar.MONTH, monthOfYear);
@@ -238,7 +243,7 @@ public class EventCreation extends Activity
 	};
 
 	@Override
-	protected Dialog onCreateDialog(int id)
+	protected Dialog onCreateDialog(final int id)
 	{
 		if (id == START_TIME_DIALOG || id == START_DATE_DIALOG)
 			editing_calendar = calendar_start;

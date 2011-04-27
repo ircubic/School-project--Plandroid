@@ -43,12 +43,12 @@ public class FriendProvider extends ContentProvider
 	private static class DBHelper extends SQLiteOpenHelper
 	{
 
-		public DBHelper(Context context) {
+		public DBHelper(final Context context) {
 			super(context, DATABASE_NAME, null, 1);
 		}
 
 		@Override
-		public void onCreate(SQLiteDatabase db)
+		public void onCreate(final SQLiteDatabase db)
 		{
 			db.execSQL(String
 					.format("CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT, %s TEXT);",
@@ -74,7 +74,8 @@ public class FriendProvider extends ContentProvider
 		}
 
 		@Override
-		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
+		public void onUpgrade(final SQLiteDatabase db, final int oldVersion,
+				final int newVersion)
 		{
 			db.execSQL(String.format("DROP TABLE IF EXISTS %s", DATABASE_TABLE));
 			onCreate(db);
@@ -85,14 +86,15 @@ public class FriendProvider extends ContentProvider
 	private DBHelper mDBHelper;
 
 	@Override
-	public int delete(Uri uri, String selection, String[] selectionArgs)
+	public int delete(final Uri uri, final String selection,
+			final String[] selectionArgs)
 	{
 		// STUB Not implemented, because unnecessary in prototype
 		return 0;
 	}
 
 	@Override
-	public String getType(Uri uri)
+	public String getType(final Uri uri)
 	{
 		switch (sUriMatcher.match(uri)) {
 		case FRIENDS:
@@ -105,7 +107,7 @@ public class FriendProvider extends ContentProvider
 	}
 
 	@Override
-	public Uri insert(Uri uri, ContentValues values)
+	public Uri insert(final Uri uri, final ContentValues values)
 	{
 		if (sUriMatcher.match(uri) != FRIENDS) { throw new IllegalArgumentException(
 				"Unknown URI " + uri); }
@@ -131,8 +133,9 @@ public class FriendProvider extends ContentProvider
 	}
 
 	@Override
-	public Cursor query(Uri uri, String[] projection, String selection,
-			String[] selectionArgs, String sortOrder)
+	public Cursor query(final Uri uri, final String[] projection,
+			final String selection, final String[] selectionArgs,
+			final String sortOrder)
 	{
 		final SQLiteQueryBuilder builder = new SQLiteQueryBuilder();
 		builder.setTables(DATABASE_TABLE);
@@ -155,8 +158,8 @@ public class FriendProvider extends ContentProvider
 	}
 
 	@Override
-	public int update(Uri uri, ContentValues values, String selection,
-			String[] selectionArgs)
+	public int update(final Uri uri, final ContentValues values,
+			final String selection, final String[] selectionArgs)
 	{
 		// STUB Not implemented, because unnecessary in prototype
 		return 0;

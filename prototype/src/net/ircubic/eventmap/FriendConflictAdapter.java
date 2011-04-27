@@ -17,9 +17,9 @@ public class FriendConflictAdapter extends BaseAdapter
 	private final FriendConflict[] mData;
 
 	public FriendConflictAdapter(final Activity context,
-			ArrayList<FriendConflict> data) {
+			final ArrayList<FriendConflict> data) {
 		mInflater = LayoutInflater.from(context);
-		mData = (FriendConflict[])data.toArray(new FriendConflict[data.size()]);
+		mData = data.toArray(new FriendConflict[data.size()]);
 	}
 
 	public int getCount()
@@ -27,23 +27,24 @@ public class FriendConflictAdapter extends BaseAdapter
 		return mData.length;
 	}
 
-	public Object getItem(int arg0)
+	public Object getItem(final int arg0)
 	{
 		try {
 			return mData[arg0];
 		}
-		catch (IndexOutOfBoundsException ex) {
+		catch (final IndexOutOfBoundsException ex) {
 			return null;
 		}
 	}
 
-	public long getItemId(int position)
+	public long getItemId(final int position)
 	{
 		final FriendConflict item = mData[position];
 		return item.id;
 	}
 
-	public View getView(int position, View convertView, ViewGroup parent)
+	public View getView(final int position, View convertView,
+			final ViewGroup parent)
 	{
 		ViewHolder holder;
 		if (convertView == null) {
@@ -62,12 +63,11 @@ public class FriendConflictAdapter extends BaseAdapter
 			holder = (ViewHolder)convertView.getTag(R.id.conflict_holder);
 		}
 
-		
 		final FriendConflict friend = mData[position];
 		holder.name.setText(friend.name);
 		holder.message.setText(friend.message);
 		convertView.setTag(R.id.conflict_position, friend);
-		
+
 		if (friend.dismissed) {
 			convertView.setBackgroundColor(0xFFFF0000);
 		} else {
