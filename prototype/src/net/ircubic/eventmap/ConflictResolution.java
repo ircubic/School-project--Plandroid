@@ -10,10 +10,10 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class ConflictResolution extends ListActivity
 {
-	private ArrayList<FriendConflict> conflicts;
 	private FriendConflictAdapter adapter;
 
 	@Override
@@ -21,24 +21,34 @@ public class ConflictResolution extends ListActivity
 	{
 		final Intent data = getIntent();
 		final Serializable x = data.getSerializableExtra("conflicts");
-		conflicts = new ArrayList<FriendConflict>();
+		final ArrayList<FriendConflict> conflicts = new ArrayList<FriendConflict>();
+
 		if (x != null) {
 			@SuppressWarnings("unchecked")
 			final ArrayList<Long> ids = (ArrayList<Long>)x;
+			if (ids.size() > 0) {
+				final String where = String.format("%s IN (%s)",
+						FriendProvider.KEY_ID, TextUtils.join(",", ids));
+				final Cursor c = managedQuery(FriendProvider.CONTENT_URI, null,
+						where, null, null);
 
-			final String where = String.format("%s IN (%s)",
-					FriendProvider.KEY_ID, TextUtils.join(",", ids));
-			final Cursor c = managedQuery(FriendProvider.CONTENT_URI, null,
-					where, null, null);
-
-			while (c.moveToNext()) {
-				final Long id = c.getLong(0);
-				final String name = c.getString(1);
-				conflicts.add(new FriendConflict(id, name));
+				while (c.moveToNext()) {
+					final Long id = c.getLong(0);
+					final String name = c.getString(1);
+					conflicts.add(new FriendConflict(id, name));
+				}
 			}
-			adapter = new FriendConflictAdapter(this, conflicts);
-			setListAdapter(adapter);
 		}
+
+		if (conflicts.size() == 0) {
+			final Toast toast = Toast.makeText(getApplicationContext(),
+					"Tried to handle a zero-conflict", Toast.LENGTH_LONG);
+			toast.show();
+			finish();
+		}
+
+		adapter = new FriendConflictAdapter(this, conflicts);
+		setListAdapter(adapter);
 
 		super.onCreate(savedInstanceState);
 	}
