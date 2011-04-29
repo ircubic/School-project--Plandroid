@@ -35,7 +35,7 @@ public class EventCreation extends Activity
 	private Calendar calendar_end;
 	private Calendar editing_calendar;
 	private ArrayList<Long> invitees;
-	private int conflict_percentage;
+	private double conflict_percentage;
 
 	private java.text.DateFormat df;
 	private java.text.DateFormat tf;
@@ -92,11 +92,8 @@ public class EventCreation extends Activity
 		calendar_end = Calendar.getInstance();
 		calendar_end.add(Calendar.HOUR, 1);
 
-		conflict_percentage = 33;
-		if (savedInstanceState != null) {
-			conflict_percentage = savedInstanceState.getInt("conflicts", 30);
-		}
-
+		final Intent i = getIntent();
+		conflict_percentage = i.getDoubleExtra("percentage", 0.33d);
 		updateDates();
 	}
 
@@ -121,7 +118,7 @@ public class EventCreation extends Activity
 				.getAdapter();
 		final Cursor c = ca.getCursor();
 		final int nums = c.getCount();
-		final long amount = Math.round(nums * (conflict_percentage / 100.0));
+		final long amount = Math.max(1, Math.round(nums * conflict_percentage));
 		final Random rand = new Random();
 		for (int i = 0; i < amount; i++) {
 			final int position = rand.nextInt(nums);
