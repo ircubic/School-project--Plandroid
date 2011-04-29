@@ -1,5 +1,7 @@
 package net.ircubic.eventmap;
 
+import java.util.Random;
+
 import android.content.ContentProvider;
 import android.content.ContentUris;
 import android.content.ContentValues;
@@ -54,15 +56,25 @@ public class FriendProvider extends ContentProvider
 					.format("CREATE TABLE %s (%s INTEGER PRIMARY KEY AUTOINCREMENT, %s TEXT);",
 							DATABASE_TABLE, KEY_ID, KEY_NAME));
 
-			final String mock_vals[] = {"Case", "Armitage", "Molly Millions",
-					"Maelcum", "Peter Riviera", "Wintermute", "Lady 3Jane",
-					"Dixie Flatline", "Neuromancer"};
+			final String first_names[] = {"Peter", "Molly", "Jake", "Fred",
+					"Christopher", "Shawn", "Amber", "Courtney", "Amanda",
+					"Mandy", "Brad", "Daniel", "Christina", "Diana", "Mia",
+					"Cody", "Jordan", "Ariel"};
+			final String last_names[] = {"Peterson", "Brown", "White", "Young",
+					"Hawkins", "Baker", "Hunter", "Smith", "Parker", "Walker",
+					"Edwards", "Richardson", "Armstrong", "Bush", "Lee",
+					"Wood", "Wright"};
+			final Random rand = new Random();
 
 			final ContentValues values = new ContentValues();
 			try {
 				db.beginTransaction();
-				for (final String val : mock_vals) {
-					values.put(KEY_NAME, val);
+				for (int i = 0; i < 75; i++) {
+					final String first = first_names[rand
+							.nextInt(first_names.length)];
+					final String last = last_names[rand
+							.nextInt(last_names.length)];
+					values.put(KEY_NAME, first + " " + last);
 					db.insert(DATABASE_TABLE, null, values);
 					values.clear();
 				}

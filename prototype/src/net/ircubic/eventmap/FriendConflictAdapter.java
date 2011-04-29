@@ -64,7 +64,7 @@ public class FriendConflictAdapter extends BaseAdapter
 
 		final FriendConflict friend = mData.get(position);
 		holder.name.setText(friend.name);
-		// holder.message.setText(friend.message);
+		holder.message.setText(friend.message);
 		convertView.setTag(R.id.conflict_position, friend);
 
 		if (friend.dismissed) {

@@ -2,6 +2,7 @@ package net.ircubic.eventmap;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Random;
 
 import android.app.ListActivity;
 import android.content.Intent;
@@ -38,10 +39,17 @@ public class ConflictResolution extends ListActivity
 				final Cursor c = managedQuery(FriendProvider.CONTENT_URI, null,
 						where, null, null);
 
+				final String[] events = {"Wedding", "Birthday party",
+						"Movie evening", "Dinner", "Lunch", "Get-together",
+						"Going to nightclub", "Family night", "Game-night",
+						"Date"};
+				final Random rand = new Random();
+
 				while (c.moveToNext()) {
 					final Long id = c.getLong(0);
 					final String name = c.getString(1);
-					conflicts.add(new FriendConflict(id, name));
+					final String message = events[rand.nextInt(events.length)];
+					conflicts.add(new FriendConflict(id, name, message));
 				}
 			}
 		}
