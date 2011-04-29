@@ -23,7 +23,7 @@ public class FriendInviting extends ListActivity
 	{
 		super.onCreate(savedInstanceState);
 		final Cursor c = managedQuery(FriendProvider.CONTENT_URI, null, null,
-				null, null);
+				null, FriendProvider.KEY_NAME + " DESC");
 		final String from[] = {FriendProvider.KEY_NAME};
 		final int to[] = {R.id.friendName};
 		final SimpleCursorAdapter ca = new SimpleCursorAdapter(this,
