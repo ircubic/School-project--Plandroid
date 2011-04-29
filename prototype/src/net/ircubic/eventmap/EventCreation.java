@@ -256,7 +256,7 @@ public class EventCreation extends Activity
 									dialog.cancel();
 								}
 							})
-					.setNegativeButton("Review",
+					.setNegativeButton("View conflicts",
 							new DialogInterface.OnClickListener() {
 								public void onClick(
 										final DialogInterface dialog,
