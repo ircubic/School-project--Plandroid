@@ -13,23 +13,23 @@ import android.widget.TextView;
 public class FriendConflictAdapter extends BaseAdapter
 {
 	private final LayoutInflater mInflater;
-	private final FriendConflict[] mData;
+	private final ArrayList<FriendConflict> mData;
 
 	public FriendConflictAdapter(final Activity context,
 			final ArrayList<FriendConflict> data) {
 		mInflater = LayoutInflater.from(context);
-		mData = data.toArray(new FriendConflict[data.size()]);
+		mData = data;
 	}
 
 	public int getCount()
 	{
-		return mData.length;
+		return mData.size();
 	}
 
 	public Object getItem(final int arg0)
 	{
 		try {
-			return mData[arg0];
+			return mData.get(arg0);
 		}
 		catch (final IndexOutOfBoundsException ex) {
 			return null;
@@ -38,7 +38,7 @@ public class FriendConflictAdapter extends BaseAdapter
 
 	public long getItemId(final int position)
 	{
-		final FriendConflict item = mData[position];
+		final FriendConflict item = mData.get(position);
 		return item.id;
 	}
 
@@ -62,7 +62,7 @@ public class FriendConflictAdapter extends BaseAdapter
 			holder = (ViewHolder)convertView.getTag(R.id.conflict_holder);
 		}
 
-		final FriendConflict friend = mData[position];
+		final FriendConflict friend = mData.get(position);
 		holder.name.setText(friend.name);
 		// holder.message.setText(friend.message);
 		convertView.setTag(R.id.conflict_position, friend);

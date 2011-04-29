@@ -21,13 +21,13 @@ public class ConflictResolution extends ListActivity
 	public static final int RESOLVE = 0;
 
 	private FriendConflictAdapter adapter;
+	private final ArrayList<FriendConflict> conflicts = new ArrayList<FriendConflict>();
 
 	@Override
 	protected void onCreate(final Bundle savedInstanceState)
 	{
 		final Intent data = getIntent();
 		final Serializable x = data.getSerializableExtra("conflicts");
-		final ArrayList<FriendConflict> conflicts = new ArrayList<FriendConflict>();
 
 		if (x != null) {
 			@SuppressWarnings("unchecked")
@@ -89,7 +89,7 @@ public class ConflictResolution extends ListActivity
 		final View parent = (View)removeButton.getParent();
 		final FriendConflict f = (FriendConflict)parent
 				.getTag(R.id.conflict_position);
-		f.dismissed = !f.dismissed;
+		conflicts.remove(f);
 		adapter.notifyDataSetChanged();
 	}
 
