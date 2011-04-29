@@ -46,12 +46,11 @@ public class EventCreation extends Activity
 	private Button end_time;
 	private ListView invitee_list;
 	private TextView event_title;
-	private AlertDialog conflictAlert;
-
 	static final int START_DATE_DIALOG = 0;
 	static final int START_TIME_DIALOG = 1;
 	static final int END_DATE_DIALOG = 2;
 	static final int END_TIME_DIALOG = 3;
+	private static final int CONFLICT_DIALOG = 4;
 
 	@Override
 	protected void onCreate(final Bundle savedInstanceState)
@@ -70,38 +69,6 @@ public class EventCreation extends Activity
 		end_date = set_up_button(R.id.editEndDate, END_DATE_DIALOG);
 		end_time = set_up_button(R.id.editEndTime, END_TIME_DIALOG);
 		event_title = (TextView)findViewById(R.id.textEventTitle);
-
-		final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setMessage("Most guests are busy then, want to reschedule?")
-				.setTitle("Schedule conflict!")
-				.setCancelable(false)
-				.setPositiveButton("Reschedule",
-						new DialogInterface.OnClickListener() {
-							public void onClick(final DialogInterface dialog,
-									final int id)
-							{
-								findViewById(R.id.dateBox).setBackgroundColor(
-										0xFF660000);
-								dialog.cancel();
-							}
-						})
-				.setNeutralButton("Review",
-						new DialogInterface.OnClickListener() {
-							public void onClick(final DialogInterface dialog,
-									final int which)
-							{
-								handleConflict();
-							}
-						})
-				.setNegativeButton("Ignore",
-						new DialogInterface.OnClickListener() {
-							public void onClick(final DialogInterface dialog,
-									final int id)
-							{
-								createAndFinish();
-							}
-						});
-		conflictAlert = builder.create();
 
 		final Button inviteButton = (Button)findViewById(R.id.inviteButton);
 		inviteButton.setOnClickListener(new OnClickListener() {
@@ -137,9 +104,9 @@ public class EventCreation extends Activity
 	{
 		if (conflict_percentage > 0) {
 			if (conflict_percentage >= 60) {
-				conflictAlert.show();
+				showDialog(CONFLICT_DIALOG);
 			} else if (conflict_percentage >= 20) {
-				conflictAlert.show();
+				showDialog(CONFLICT_DIALOG);
 			}
 		} else {
 			createAndFinish();
@@ -267,6 +234,32 @@ public class EventCreation extends Activity
 					editing_calendar.get(Calendar.YEAR),
 					editing_calendar.get(Calendar.MONTH),
 					editing_calendar.get(Calendar.DAY_OF_MONTH));
+		} else if (id == CONFLICT_DIALOG) {
+			final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setMessage("Most guests are busy then, want to reschedule?")
+					.setTitle("Schedule conflict!")
+					.setCancelable(false)
+					.setPositiveButton("Reschedule",
+							new DialogInterface.OnClickListener() {
+								public void onClick(
+										final DialogInterface dialog,
+										final int id)
+								{
+									findViewById(R.id.dateBox)
+											.setBackgroundColor(0xFF660000);
+									dialog.cancel();
+								}
+							})
+					.setNegativeButton("Review",
+							new DialogInterface.OnClickListener() {
+								public void onClick(
+										final DialogInterface dialog,
+										final int which)
+								{
+									handleConflict();
+								}
+							});
+			return builder.create();
 		} else
 			return null;
 	}
