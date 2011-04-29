@@ -2,10 +2,9 @@
 <resources>
     <string name="app_name">Plandroid</string>
     <string name="intro_text">This is the event map prototype, choose scenario below:</string>
-    <string name="scen_baseline">Event creation - Baseline</string>
-    <string name="scen_private_small_conflict">Small event - small conflict</string>
-    <string name="scen_private_large_conflict">Small event - Large conflict</string>
-    <string name="scen_moderate_conflict">Large event - Moderate conflict</string>
+    <string name="scen_baseline">Baseline</string>
+    <string name="scen_private_small_conflict">Small conflict</string>
+    <string name="scen_private_large_conflict">Large conflict</string>
     <string name="scenario_start">Start scenario</string>
     <string name="event_title">Event title:</string>
     <string name="start_time">Start time:</string>

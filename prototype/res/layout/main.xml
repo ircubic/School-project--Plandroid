@@ -7,17 +7,14 @@
 	<RadioGroup android:layout_height="wrap_content" android:id="@+id/radioGroup1"
 		android:layout_width="fill_parent">
 		<RadioButton android:layout_height="wrap_content"
-			android:id="@+id/radio0" android:layout_width="wrap_content"
+			android:id="@+id/radio_baseline" android:layout_width="wrap_content"
 			android:checked="true" android:text="@string/scen_baseline"></RadioButton>
 		<RadioButton android:layout_height="wrap_content"
-			android:id="@+id/radio1" android:layout_width="wrap_content"
+			android:id="@+id/radio_private_small" android:layout_width="wrap_content"
 			android:text="@string/scen_private_small_conflict"></RadioButton>
 		<RadioButton android:layout_height="wrap_content"
-			android:id="@+id/radio2" android:layout_width="wrap_content"
+			android:id="@+id/radio_private_big" android:layout_width="wrap_content"
 			android:text="@string/scen_private_large_conflict"></RadioButton>
-		<RadioButton android:layout_height="wrap_content"
-			android:text="@string/scen_moderate_conflict" android:id="@+id/radioButton1"
-			android:layout_width="wrap_content"></RadioButton>
 	</RadioGroup>
 	<Button android:text="@string/scenario_start"
 		android:layout_height="wrap_content" android:layout_width="wrap_content"
