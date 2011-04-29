@@ -50,7 +50,8 @@ public class EventCreation extends Activity
 	static final int START_TIME_DIALOG = 1;
 	static final int END_DATE_DIALOG = 2;
 	static final int END_TIME_DIALOG = 3;
-	private static final int CONFLICT_DIALOG = 4;
+	private static final int CONFLICT_DIALOG_MAJOR = 4;
+	private static final int CONFLICT_DIALOG_MINOR = 5;
 
 	@Override
 	protected void onCreate(final Bundle savedInstanceState)
@@ -99,11 +100,11 @@ public class EventCreation extends Activity
 
 	protected void checkConflictAndCreate()
 	{
-		if (conflict_percentage > 0) {
-			if (conflict_percentage >= 60) {
-				showDialog(CONFLICT_DIALOG);
-			} else if (conflict_percentage >= 20) {
-				showDialog(CONFLICT_DIALOG);
+		if (conflict_percentage > 0.0 && invitee_list.getCount() > 0) {
+			if (conflict_percentage >= 0.60) {
+				showDialog(CONFLICT_DIALOG_MAJOR);
+			} else if (conflict_percentage >= 0.20) {
+				showDialog(CONFLICT_DIALOG_MINOR);
 			}
 		} else {
 			createAndFinish();
@@ -237,7 +238,7 @@ public class EventCreation extends Activity
 					editing_calendar.get(Calendar.YEAR),
 					editing_calendar.get(Calendar.MONTH),
 					editing_calendar.get(Calendar.DAY_OF_MONTH));
-		} else if (id == CONFLICT_DIALOG) {
+		} else if (id == CONFLICT_DIALOG_MAJOR) {
 			final AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			builder.setMessage("Most guests are busy then, want to reschedule?")
 					.setTitle("Schedule conflict!")
@@ -251,6 +252,31 @@ public class EventCreation extends Activity
 									findViewById(R.id.dateBox)
 											.setBackgroundColor(0xFF660000);
 									dialog.cancel();
+								}
+							})
+					.setNegativeButton("View conflicts",
+							new DialogInterface.OnClickListener() {
+								public void onClick(
+										final DialogInterface dialog,
+										final int which)
+								{
+									handleConflict();
+								}
+							});
+			return builder.create();
+		} else if (id == CONFLICT_DIALOG_MINOR) {
+			final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setMessage(
+					"Some guests are busy then, want to review the conflicts?")
+					.setTitle("Schedule conflict!")
+					.setCancelable(false)
+					.setPositiveButton("Ignore",
+							new DialogInterface.OnClickListener() {
+								public void onClick(
+										final DialogInterface dialog,
+										final int id)
+								{
+									createAndFinish();
 								}
 							})
 					.setNegativeButton("View conflicts",
