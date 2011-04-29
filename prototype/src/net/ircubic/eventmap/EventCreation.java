@@ -140,6 +140,12 @@ public class EventCreation extends Activity
 		finish();
 	}
 
+	private void startInviting()
+	{
+		final Intent intent = new Intent(this, FriendInviting.class);
+		startActivityForResult(intent, FriendInviting.INVITE);
+	}
+
 	private Button set_up_button(final int id, final int dialog_id)
 	{
 		final Button button = (Button)findViewById(id);
@@ -262,12 +268,6 @@ public class EventCreation extends Activity
 			return builder.create();
 		} else
 			return null;
-	}
-
-	private void startInviting()
-	{
-		final Intent intent = new Intent(this, FriendInviting.class);
-		startActivityForResult(intent, FriendInviting.INVITE);
 	}
 
 }
