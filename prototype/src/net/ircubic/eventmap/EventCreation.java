@@ -46,6 +46,7 @@ public class EventCreation extends Activity
 	private Button end_time;
 	private ListView invitee_list;
 	private TextView event_title;
+	private boolean rescheduled;
 	static final int START_DATE_DIALOG = 0;
 	static final int START_TIME_DIALOG = 1;
 	static final int END_DATE_DIALOG = 2;
@@ -63,7 +64,8 @@ public class EventCreation extends Activity
 
 		df = DateFormat.getDateFormat(getApplicationContext());
 		tf = DateFormat.getTimeFormat(getApplicationContext());
-
+		rescheduled = false;
+		
 		invitee_list = (ListView)findViewById(R.id.inviteeList);
 		start_date = set_up_button(R.id.editStartDate, START_DATE_DIALOG);
 		start_time = set_up_button(R.id.editStartTime, START_TIME_DIALOG);
@@ -100,7 +102,7 @@ public class EventCreation extends Activity
 
 	protected void checkConflictAndCreate()
 	{
-		if (conflict_percentage > 0.0 && invitee_list.getCount() > 0) {
+		if (!rescheduled && conflict_percentage > 0.0 && invitee_list.getCount() > 0) {
 			if (conflict_percentage >= 0.60) {
 				showDialog(CONFLICT_DIALOG_MAJOR);
 			} else if (conflict_percentage >= 0.20) {
@@ -113,6 +115,7 @@ public class EventCreation extends Activity
 
 	private void handleConflict()
 	{
+		
 		final Intent intent = new Intent(this, ConflictResolution.class);
 		final ArrayList<Long> ids = new ArrayList<Long>();
 		final SimpleCursorAdapter ca = (SimpleCursorAdapter)invitee_list
@@ -174,7 +177,7 @@ public class EventCreation extends Activity
 				final String where = String.format("%s IN (%s)",
 						FriendProvider.KEY_ID, TextUtils.join(",", invitees));
 				final Cursor c = managedQuery(FriendProvider.CONTENT_URI, null,
-						where, null, null);
+						where, null, FriendProvider.KEY_NAME + " ASC");
 
 				final String from[] = {FriendProvider.KEY_NAME};
 				final int to[] = {R.id.friendName};
@@ -249,6 +252,7 @@ public class EventCreation extends Activity
 										final DialogInterface dialog,
 										final int id)
 								{
+									rescheduled = true;
 									findViewById(R.id.dateBox)
 											.setBackgroundColor(0xFF660000);
 									dialog.cancel();

@@ -5,7 +5,7 @@
 	<TextView android:layout_height="wrap_content" android:id="@+id/textView1"
 		android:layout_width="wrap_content" android:text="@string/event_title"
 		android:textStyle="bold" />
-	<EditText android:layout_height="wrap_content" android:text="EditText"
+	<EditText android:layout_height="wrap_content" android:text=""
 		android:layout_width="fill_parent" android:id="@+id/textEventTitle" />
 	<View android:id="@+id/view1" android:layout_height="1dp"
 		android:background="@drawable/separator" android:layout_width="wrap_content" />

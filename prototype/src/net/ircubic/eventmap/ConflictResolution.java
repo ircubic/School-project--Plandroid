@@ -37,7 +37,7 @@ public class ConflictResolution extends ListActivity
 				final String where = String.format("%s IN (%s)",
 						FriendProvider.KEY_ID, TextUtils.join(",", ids));
 				final Cursor c = managedQuery(FriendProvider.CONTENT_URI, null,
-						where, null, FriendProvider.KEY_NAME + " DESC");
+						where, null, FriendProvider.KEY_NAME + " ASC");
 
 				final String[] events = {"Wedding", "Birthday party",
 						"Movie evening", "Dinner", "Lunch", "Get-together",
