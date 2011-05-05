@@ -3,6 +3,7 @@
 \usepackage{listings}
 \usepackage{hyperref}
 \usepackage{hypcap}
+\usepackage{graphicx}
 
 
 % Set up some colors
@@ -90,7 +91,8 @@ manner, and both types of services have traditionally had separate focuses.
 In addition, the planner still has to conduct several conversations with people
 if the events that are planned rely heavily on the availability of the invited
 participants, as there are currently no good solutions for automating schedule
-conflict resolution.
+conflict resolution and making use of information across different social
+networks to aid this.
 
 \section{Motivation}
 
@@ -106,12 +108,13 @@ similar.
 The motivation for this is to explore what benefits, if any, people can get from
 using mobile devices to streamline inherently social day-to-day tasks, and if
 modern tools like the social graph and recommendation systems can improve on how
-they are done, and make friends feel more intimately connected. The report will
-especially focus on automated schedule negotiation while planning events.
+they are done, and make friends feel more intimately connected. This report will
+most directly focus on automated schedule negotiation while planning events
+using information gathered from social networks.
 
 \section{Context}
 This report was written in conjunction with the Mobile Applications course at
-H\o{}gskolen i \O{}stfold\cite{site:mobapp}.
+H\o{}gskolen i \O{}stfold\cite{site:mobapp} during the spring semester of 2011.
 
 \section{Previous and related work}
 
@@ -203,50 +206,44 @@ help when evaluating requirements and design decisions.
 
 \subsubsection{First prototype}
 
-In the first\marginpar{Remove first if we don't do more design phases} design
-phase, I created a functional prototype of the application in the form of an
-Android application. This application was hard-coded to be used with the
-following set of scenarios:
+In the design phase, I created a functional prototype of the application in the
+form of an Android application. This application was hard-coded to be used with
+the following set of scenarios:
 
 \begin{itemize}
 \item The user creates an event with no conflicts, to be used for general
   commentary on flow, and as baseline.
 \item The user creates a small, personal event with only a 10\% conflict rate,
-  and has to handle the conflict. Handles the ``trivial conflict'' case.
+  and has to handle the conflict. Handles the ``minor conflict'' case.
 \item The user creates a small, personal event with a 50\% conflict rate, and
-  has to handle the conflict. Handles the ``massive conflict'' case.
-\item The use creates a big event with a 20\% conflict rate, and has to handle
-  the conflict. Handles the ``moderate conflict with high amount of people''
-  case.
+  has to handle the conflict. Handles the ``major conflict'' case.
 \end{itemize}
 
-The application was then tested with five users.
+The application was then tested with five users as detailed in the following
+section.
 
 \subsubsection{Evaluation}
 
-In the evaluation phase, I will use the prototypes created in the Design phase,
-then run them through user tests. These user tests will focus on running the
-users through various tasks, observing their behaviour, how intuitive the
-design is, as well as if displayed screens match user's expectations. These
-tests will be designed to answer a set of questions determined before each test
-is created.
+In the evaluation phase, I used the prototype created in the Design phase, then
+run them through user tests. These user tests focused on running the users
+through various tasks, observing their behaviour, how intuitive the design is,
+as well as if displayed screens match user's expectations. These tests were
+designed to answer a set of questions determined before the test was created.
 
-In addition, informal interview or question sessions may be done after these
-user tests to answer any questions that might have arisen during tests, as well
-as any that have been left unanswered from the initial set of questions.
+In addition, informal interview or question sessions were held after these user
+tests to answer any questions left over, as well to gather the user's general
+opinion on the interface, and answer questions that are peripheral to the
+prototype.
 
-If the evaluation phase points out that there are problems with the current
-design, and there is time left, I will return to the design phase, otherwise the
-design is evaluated against the final evaluation criteria.
+The design was then evaluated against the final evaluation criteria.
 
 \section{Final evaluation criteria}
 
-The final evaluation criteria will be based on the user tests on the final
-prototype, as well as aggregated data from all the user tests that have been
-run. They will look at how well the user likes the social features, and if they
-perceive that they would make the job of planning events easier for them. In
-addition, the design will be evaluated for usability concerns, and privacy
-concerns.
+The final evaluation criteria was based on the user tests on the prototype. They
+looked at how well the user liked the use of social features to handle schedule
+negotiation, if they perceive that it would make the job of planning events
+easier for them. In addition, the design will be evaluated for usability and
+privacy concerns.
 
 \section{Frameworks}
 
@@ -257,6 +254,109 @@ What?
 \chapter{Results}
 
 \section{Status of application / prototype}
+
+The prototype that was created during this project was a very focused working
+prototype, supporting three different scenarios regarding schedule
+conflicts. The prototype has many simplifications done to speed up the creation
+process and to remove elements that are unnecessary during the user tests the
+prototype are aimed at.
+
+The scenarios supported are gone through one-by one during each session, chosen
+with a set of radio buttons on the first screen as shown in Figure
+\ref{fig:scenario}.
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[height=50mm]{scenario}
+  \caption{The scenario selection screen}
+  \label{fig:scenario}
+\end{figure}
+
+In the prototype the user can go through the event creation procedure and handle
+conflicts in different ways, supporting two different conflict types, major and
+minor. The event creation screen, shown in Figure \ref{fig:creation}, is not
+fully featured in any way, only allowing the user to input the minimum amount of
+information required to create an event. This was done so the user would focus
+less on critiquing the actual screen, and more on the actual procedure of
+inviting and handling schedule conflicts.
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[height=50mm]{eventcreation}
+  \caption{The event creation screen}
+  \label{fig:creation}
+\end{figure}
+
+This screen also allows the user to go invite friends, which pops up the screen
+shown in Figure \ref{fig:invitation}, allowing the user to select which of their friends to
+invite. These friends were randomly generated from a preset list of names, to
+give the user some data to work with without requiring a lengthy input session
+beforehand.
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[height=50mm]{invitation}
+  \caption{The invitation screen}
+  \label{fig:invitation}
+\end{figure}
+
+When the user is done, they are taken back to the event creation
+screen with their invited friends in a list, as shown in Figure \ref{fig:invited}.
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[height=50mm]{invited}
+  \caption{Invited friends}
+  \label{fig:invited}
+\end{figure}
+
+When the user then presses the button marked ``Create event'' and there are no
+conflicts, a notification pops up saying that the event has been created and the
+user is taken back to the scenario selection screen. If there are conflicts (as
+is the case in the two last scenarios on the list), then one of two dialogs can
+pop up. For a minor conflict the dialog in Figure \ref{fig:minor} pops up, and
+for a major conflict the dialog in Figure \ref{fig:major} pops up.
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[height=50mm]{minor}
+  \caption{The minor conflict dialog}
+  \label{fig:minor}
+\end{figure}
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[height=50mm]{major}
+  \caption{The major conflict dialog}
+  \label{fig:major}
+\end{figure}
+
+Both those dialogs give the user the option to review the conflicts, which takes
+the user to the screen in Figure \ref{fig:resolve}. On this screen, the user can
+see who has schedule conflicts, what event is the cause of the conflict, and has
+the option of removing them from the invite list. The events listed under the
+conflicting users are chosen randomly from a predefined list as well, to give
+different scenarios for every test.
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[height=50mm]{resolution}
+  \caption{The conflict resolution screen}
+  \label{fig:resolve}
+\end{figure}
+
+When there is a major conflict, the user is given the option to reschedule the
+event, which takes the user back to the event creation screen, with the time and
+date selectors highlighted, as in Figure \ref{fig:reschedule}. The event will
+then be created with no conflicts (another simplification done during the
+creation of the prototype).
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[height=50mm]{reschedule}
+  \caption{The reschedule highlight}
+  \label{fig:reschedule}
+\end{figure}
 
 \section{Final evaluation results}
 
