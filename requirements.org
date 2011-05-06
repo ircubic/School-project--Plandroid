@@ -192,8 +192,8 @@ associated with it, and allows actions upon the event
      conflicting. When this happens, the application should show a warning, and
      prompt the user to reschedule the event. If the user chooses to do so, they
      are taken back to the creation/editing screen with the date/time panel
-     highlighted. If the user chooses to ignore the warning, the same overview
-     of conflicting friends as in small conflicts is given.
+     highlighted. The user can also choose to go to the same overview of
+     conflicting friends as in small conflicts.
 
 ** User profile
 *** The user must set basic personal information
