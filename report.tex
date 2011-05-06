@@ -88,11 +88,18 @@ Events and similar platforms, there are also solutions for location-based
 services. However, there are no services that integrate the two in a seamless
 manner, and both types of services have traditionally had separate focuses.
 
-In addition, the planner still has to conduct several conversations with people
-if the events that are planned rely heavily on the availability of the invited
-participants, as there are currently no good solutions for automating schedule
-conflict resolution and making use of information across different social
-networks to aid this.
+In addition, the person planning the event still has to conduct several
+conversations with people if the events that are planned rely heavily on the
+availability of the invited participants, as there are currently no good
+solutions for automating schedule conflict resolution and making use of
+information across different social networks to aid this.
+
+The focus of this solution is on mobile platforms, a set of platforms which is
+ill-suited to do data entry on\cite{brown:fourkey}. It would be preferable to
+avoid as much data entry as possible, which could be facilitated by accessing
+social networks, both for initial data import, or as live data sources. This
+would greatly cut down on the amount of annoying typing that needs to be done on
+the device, as well as minimize data duplication.
 
 \section{Motivation}
 
@@ -118,7 +125,20 @@ H\o{}gskolen i \O{}stfold\cite{site:mobapp} during the spring semester of 2011.
 
 \section{Previous and related work}
 
-\subsubsection{Similar solutions}
+\subsection{Related research}
+
+Although there are few, if any, solutions for doing automated schedule
+negotiation through social networks, there has been research on automating or
+helping schedule negotiation via semi-autonomous
+agents\cite{haynes97:_autom_meetin_sched_system,sen97:_devel,benhassine07},
+mostly focusing on scheduling meetings.
+
+Automated negotiations in the business world can also be deemed relevant, as
+schedule negotiation is essentially a negotiation over a personal resource,
+time, and there has been some research on this as
+well\cite{Beam97automatednegotiations:}.
+
+\subsection{Similar solutions}
 
 \begin{description}
 \item[Belugapods] A group-based messaging service that allows conversation
@@ -156,6 +176,12 @@ contain is given:
   heuristic, tests. If these tests indicate that the current prototype is not
   good enough, we return to the design phase to make another.
 \end{description}
+
+To drive the process along I will be taking a heavily user-centered approach, as
+described by Preece, Rogers and Sharp\cite{preece07:_inter_desig}, by involving
+users early and throughout the process, as well as using an iterative approach
+if time allows. I will also keep the 5W+H\cite{heim08:_reson_inter} in the back
+of my mind during the process.
 
 \subsection{Discovery}
 
@@ -239,17 +265,11 @@ The design was then evaluated against the final evaluation criteria.
 
 \section{Final evaluation criteria}
 
-The final evaluation criteria was based on the user tests on the prototype. They
-looked at how well the user liked the use of social features to handle schedule
-negotiation, if they perceive that it would make the job of planning events
-easier for them. In addition, the design will be evaluated for usability and
-privacy concerns.
-
-\section{Frameworks}
-
-\section{Process - motivated progress}
-
-What?
+The final evaluation criteria are based on the user tests on the
+prototype. They're based on how well the user liked the use of social features
+to handle schedule negotiation, if they perceive that it would make the job of
+planning events easier for them. In addition, the design will be evaluated for
+usability and privacy concerns.
 
 \chapter{Results}
 
@@ -263,7 +283,8 @@ prototype are aimed at.
 
 The scenarios supported are gone through one-by one during each session, chosen
 with a set of radio buttons on the first screen as shown in Figure
-\ref{fig:scenario}.
+\ref{fig:scenario}. This screen is only used to drive the user tests, and as
+such will not be evaluated against any criteria.
 
 \begin{figure}[htb]
   \centering
@@ -274,8 +295,10 @@ with a set of radio buttons on the first screen as shown in Figure
 
 In the prototype the user can go through the event creation procedure and handle
 conflicts in different ways, supporting two different conflict types, major and
-minor. The event creation screen, shown in Figure \ref{fig:creation}, is not
-fully featured in any way, only allowing the user to input the minimum amount of
+minor.
+
+The event creation screen, shown in Figure \ref{fig:creation}, is not fully
+featured in any way, only allowing the user to input the minimum amount of
 information required to create an event. This was done so the user would focus
 less on critiquing the actual screen, and more on the actual procedure of
 inviting and handling schedule conflicts.
@@ -287,11 +310,11 @@ inviting and handling schedule conflicts.
   \label{fig:creation}
 \end{figure}
 
-This screen also allows the user to go invite friends, which pops up the screen
-shown in Figure \ref{fig:invitation}, allowing the user to select which of their friends to
-invite. These friends were randomly generated from a preset list of names, to
-give the user some data to work with without requiring a lengthy input session
-beforehand.
+This screen also allows the user to invite friends by clicking on the
+appropriate button, which pops up the screen shown in Figure
+\ref{fig:invitation}, allowing the user to select which of their friends to
+invite. The list is a standard Android ListView with an invite button at the
+bottom, which the user has to scroll down to find.
 
 \begin{figure}[htb]
   \centering
@@ -300,8 +323,13 @@ beforehand.
   \label{fig:invitation}
 \end{figure}
 
-When the user is done, they are taken back to the event creation
-screen with their invited friends in a list, as shown in Figure \ref{fig:invited}.
+The friends available in the prototype were randomly generated from a preset
+list of names when the application is first launched, to give the user some data
+to work with without requiring a lengthy input session beforehand.
+
+When the user is done inviting friends, and click the invite button, they are
+taken back to the event creation screen with their invited friends in a list, as
+shown in Figure \ref{fig:invited}.
 
 \begin{figure}[htb]
   \centering
@@ -312,10 +340,12 @@ screen with their invited friends in a list, as shown in Figure \ref{fig:invited
 
 When the user then presses the button marked ``Create event'' and there are no
 conflicts, a notification pops up saying that the event has been created and the
-user is taken back to the scenario selection screen. If there are conflicts (as
-is the case in the two last scenarios on the list), then one of two dialogs can
-pop up. For a minor conflict the dialog in Figure \ref{fig:minor} pops up, and
-for a major conflict the dialog in Figure \ref{fig:major} pops up.
+user is taken back to the scenario selection screen.
+
+If there are conflicts (as is the case with the two last scenarios on the list),
+then one of two dialogs can pop up. For a minor conflict (defined as 20\% of the
+invited guests) the dialog in Figure \ref{fig:minor} pops up, allowing the user
+to either ignore the warning or review the conflicts.
 
 \begin{figure}[htb]
   \centering
@@ -324,6 +354,10 @@ for a major conflict the dialog in Figure \ref{fig:major} pops up.
   \label{fig:minor}
 \end{figure}
 
+For a major conflict (defined as 60\% of the invited guests) the dialog in
+Figure \ref{fig:major} pops up, prompting the user to reschedule the event, or
+review the conflicts.
+
 \begin{figure}[htb]
   \centering
   \includegraphics[height=50mm]{major}
@@ -331,12 +365,14 @@ for a major conflict the dialog in Figure \ref{fig:major} pops up.
   \label{fig:major}
 \end{figure}
 
-Both those dialogs give the user the option to review the conflicts, which takes
-the user to the screen in Figure \ref{fig:resolve}. On this screen, the user can
-see who has schedule conflicts, what event is the cause of the conflict, and has
-the option of removing them from the invite list. The events listed under the
-conflicting users are chosen randomly from a predefined list as well, to give
-different scenarios for every test.
+Both of these dialogs give the user access to the screen in Figure
+\ref{fig:resolve} for reviewing conflicts. On this screen, the user can see who
+has schedule conflicts, what event is the cause of the conflict, and has the
+option of removing them from the invite list.
+
+The events listed under the conflicting users are chosen randomly from a
+predefined list at the time of showing the conflicts, to give a little
+randomness to every test.
 
 \begin{figure}[htb]
   \centering
@@ -345,11 +381,9 @@ different scenarios for every test.
   \label{fig:resolve}
 \end{figure}
 
-When there is a major conflict, the user is given the option to reschedule the
-event, which takes the user back to the event creation screen, with the time and
-date selectors highlighted, as in Figure \ref{fig:reschedule}. The event will
-then be created with no conflicts (another simplification done during the
-creation of the prototype).
+When the user chooses to reschedule the event from the major conflict dialog,
+the application takes the user back to the event creation screen. The time and
+date selectors are now highlighted, as in Figure \ref{fig:reschedule}.
 
 \begin{figure}[htb]
   \centering
@@ -358,7 +392,13 @@ creation of the prototype).
   \label{fig:reschedule}
 \end{figure}
 
+When the user clicks the create event button again (regardless of whether the
+time/date is changed or not) the event will then be created successfully,
+another simplification done during the creation of the prototype.
+
 \section{Final evaluation results}
+
+
 
 \chapter{Discussion}
 
@@ -372,30 +412,23 @@ creation of the prototype).
 
 \section{Next steps - future work}
 
-\section{References}
+In handheld and ubiquitous computing, a user's context is very dynamic. When
+using applications in these settings, a user has much to gain by the effective
+use of implicitly sensed context\cite{dey99:towar}.
+
+\section{Conclusion}
 
 \bibliography{report}{}
 \bibliographystyle{plain}
 
-%Scientific references
-%Previous work
-%Web sites / projects / products
-
-\section{Conclusion}
 
 \chapter{Appendices}
 
 Will be provided as separate tex documents and put afterwards, these headers are
 just for reminders
 
-\section{Code selections}
-
 \section{Transcripts}
 
 \section{Requirement documents}
-
-\section{Paper prototype(s)}
-
-Mockups\cite{site:mockups}
 
 \end{document}
