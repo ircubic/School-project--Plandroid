@@ -398,7 +398,50 @@ another simplification done during the creation of the prototype.
 
 \section{Final evaluation results}
 
+Running the prototype through user tests proved enlightening. They showed that the
+basic idea was sound, but the interface of the prototype was perhaps too
+simplistic and fragmented.
 
+The interface for inviting friends proved confusing, as the users weren't aware
+of the Invite button at the end of the list to begin with, and there was no menu
+option that performed the same function. They would either discover it by
+accident while scrolling through the list, or have to be told where it was
+located.
+
+When it came to discovering and handling conflicts, the users agreed that the
+functionality was promising, but lacking implementation-wise. A common problem
+was for the user to remember state between the event creation and conflict
+resolution screens. They would forget what time the event was set, and had to go
+back and forth between the conflict resolution screen and the event information,
+which in the prototype is an arduous task. There was also indication that the
+choice of what to do during a schedule conflict is not obvious before the user
+knows who is on the conflict list.
+
+Most of the users found the conflict resolution screen easy to use and
+understand, but a bit under-featured, although some felt that the red X buttons
+were not immediately understandable, and pulled attention away from the
+descriptive text. In addition, some of the users wanted access to more actions
+than just removing from the guest list. All of the users agreed that showing the
+guests' events was helpful in deciding what to do with a conflict, but almost
+all agreed that showing the time as well would be even more helpful.
+
+Users lamented the fact the system wasn't smarter, and proposed that perhaps the
+system could first try automatically resolving the conflict, particularly in
+minor ones, and propose suitable times for rescheduling, or automatically mark
+certain guests as ``points of interest'' and give recommendations when resolving
+conflicts.
+
+In addition, some of the users showed concerns with the threshold values set for
+minor and major conflicts, and wished that they were configurable, and the idea
+of prioritizing friends so that certain friends were more important when
+considering if a conflict is worth reporting was brought up. This point was also
+brought up in similar research\cite{benhassine07,haynes97:_autom_meetin_sched_system}.
+
+In summary, the interface as created in this prototype was workable, but could
+do with some streamlining. The current flow hides crucial information behind a
+dialog, and doesn't allow the user to go back and forth easily (as the dialog
+will pop back up every time). In addition, the system is not as automated as it
+could be, but it is a step in the right direction.
 
 \chapter{Discussion}
 
