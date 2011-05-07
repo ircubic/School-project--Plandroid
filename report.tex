@@ -1,4 +1,4 @@
-\documentclass[]{report}
+\documentclass[a4paper,11pt]{report}
 \usepackage[usenames,dvipsnames]{color}
 \usepackage{listings}
 \usepackage{hyperref}
@@ -13,7 +13,7 @@
 
 % Set up some PDF options and reference coloration
 \hypersetup{
-    pdftitle={Mobile Applications - Designing an Event App}
+    pdftitle={Mobile Applications - Designing a modern event planning app}
     pdfauthor={Daniel E. Bruce},     % author
     colorlinks=true,       % false: boxed links; true: colored links
     linkcolor=red,          % color of internal links
@@ -63,7 +63,7 @@
 % Document begins here
 %
 \begin{document}
-\title{Mobile Applications - Designing an Event App}
+\title{Mobile Applications - Designing a Modern Event-planning App}
 \author{Daniel E. Bruce}
 \date{\today}
 \maketitle
@@ -103,14 +103,14 @@ the device, as well as minimize data duplication.
 
 \section{Motivation}
 
-The aim of this report is to design a social event planning application
-that focus on low-key, day-to-day events, utilizes already existing social
-networks to give recommendations, uses the information stored in the networks to
-streamline event creation, and a map-based view. The type of events planned are
-intended to be the personal, small-scale variants, like ``we're going to lunch,
-where do we want to go?'', ``I'm having a movie get together, who wants to
-come'', as opposed to big-scale events like concerts, movie showings and
-similar.
+The aim of this report is to design a social event planning application, from
+hereon called Plandroid, that focuses on low-key, day-to-day events, utilizes
+already existing social networks to give recommendations, uses the information
+stored in the networks to streamline event creation, and a map-based view. The
+type of events planned are intended to be the personal, small-scale variants,
+like ``we're going to lunch, where do we want to go?'', ``I'm having a movie get
+together, who wants to come'', as opposed to big-scale events like concerts,
+movie showings and similar.
 
 The motivation for this is to explore what benefits, if any, people can get from
 using mobile devices to streamline inherently social day-to-day tasks, and if
@@ -131,7 +131,7 @@ Although there are few, if any, solutions for doing automated schedule
 negotiation through social networks, there has been research on automating or
 helping schedule negotiation via semi-autonomous
 agents\cite{haynes97:_autom_meetin_sched_system,sen97:_devel,benhassine07},
-mostly focusing on scheduling meetings.
+mostly focusing on scheduling meetings during the age of emails.
 
 Automated negotiations in the business world can also be deemed relevant, as
 schedule negotiation is essentially a negotiation over a personal resource,
@@ -160,10 +160,10 @@ well\cite{Beam97automatednegotiations:}.
 
 \section{Phases}
 
-The method I intend to use in designing this application will go through the
-phases of Discovery, Design and Evaluation. The execution of the phases will be
-described in detail in further sections, but a quick summary of what they will
-contain is given:
+The method I intend to use in designing Plandroid will go through the phases of
+Discovery, Design and Evaluation. The execution of the phases will be described
+in detail in further sections, but a quick summary of what they will contain is
+given:
 
 \begin{description}
 \item[Discovery] In the discovery phase, data is gathered to attempt to get an
@@ -425,11 +425,11 @@ than just removing from the guest list. All of the users agreed that showing the
 guests' events was helpful in deciding what to do with a conflict, but almost
 all agreed that showing the time as well would be even more helpful.
 
-Users lamented the fact the system wasn't smarter, and proposed that perhaps the
-system could first try automatically resolving the conflict, particularly in
-minor ones, and propose suitable times for rescheduling, or automatically mark
-certain guests as ``points of interest'' and give recommendations when resolving
-conflicts.
+Users lamented the fact the system wasn't smarter and more autonomous, and
+proposed that perhaps the system could first try automatically resolving the
+conflict, particularly in minor ones. This would allow it to propose suitable
+times for rescheduling, automatically mark certain guests as ``points of
+interest'' and give recommendations when resolving conflicts.
 
 In addition, some of the users showed concerns with the threshold values set for
 minor and major conflicts, and wished that they were configurable, and the idea
@@ -447,19 +447,130 @@ could be, but it is a step in the right direction.
 
 \section{Success(es)}
 
+This has succeeded beyond, and in a wildly different direction than, what was
+initially expected. It has gone through an entire design cycle, with the end
+result of a functional prototype being tested with real users for a deep look at
+a narrow bit of functionality, as opposed to the initial plan of making paper
+prototypes for a shallow look at a wider area of the system.
+
+This deep look has unearthed an interesting merger of old and new technology,
+namely using data from social networks and social graphs and combining that with
+semi-autonomous agents. It has shown that the functionality envisioned as the
+end result of this project is actually desirable for end users and could be
+developed into something very useful if more research went into it.
+
+The prototype itself showed to be, despite its simplicity, good enough to elicit
+useful feedback on the conflict resolution process itself, instead of leading
+users to comment on the design of the interface itself. In addition, the user
+tests done with a working prototype allowed the users to play around with the
+interface and come up with ideas for improvements they might not have with a
+less engaging paper prototype.
+
 \section{Flaw(s)}
+
+The project was not without its flaws, chief of which was the wasteful use of
+time, leading to there being no iteration over the design to improve the
+prototype and get even more feedback.
+
+The biggest cause of this was heavily underestimating the amount of time that
+would be spent learning the Android SDK, although the change of focus from wide
+paper prototype to narrow functional prototype in the middle of the project did
+contribute.
+
+The prototype itself had some notable flaws, the most obvious one being that the
+data used in the prototype was not real. A user won't relate to fake people as
+much as they would to real friends, so the user testing lost its ``personal
+touch'', which does affect the outcome and how serious the user would be about
+the process. This came out clearly with some users who were clearly not taking
+the decisions they had to make seriously.
+
+During the user tests, a big problem with the idea of automatically notifying
+event creators about schedule conflicts and allowing them to remove guests from
+the invite list based on that information came up. The users expressed concern
+that they would lose the ability to choose between conflicting events for
+themselves, and that giving only the option to remove guests from the invite
+list would lead to them missing out on things they would want to do.
+
+Users also voiced concerns about the privacy implications of the idea, which is
+something that wasn't well explored during this project, but should have been,
+as having users be able to hide event information could impact the usefulness of
+the idea.
 
 \section{What did I learn}
 
+During the project I learned that doing tests with real users can give you very
+useful and unique insights that you would never get by just using frameworks and
+heuristics to design an application. I was constantly surprised by how small
+statements or concerns voiced by users would open my eyes to something I had
+never considered or change my opinion on something I had taken for granted. I
+was already aware of this fact, but nevertheless I was taken by surprise by how
+many insights just five people can give you.
+
+Regarding the goal of the project, I learned that there is a real opportunity to
+harness the power of social networks, combine it with the work done on
+(semi-)autonomous agents, and create something that would both simplify a task
+and give users the ability to make more informed choices at the same time. There
+is a lot of exciting work that could be (and presumably is) done in this area.
+
+Lastly I learned is that time-management is essential to a good project, and
+that constant, slow progress is much better for your nerves than working in
+spurts of extreme activity. I wish I knew this before I started.
+
 \section{What would I do different}
+
+If I were to do this project over again, I would start out by narrowing down my
+focus a lot earlier, as such I would have arrived on the goal of a functional
+prototype much earlier. That would have given me enough time to perform several
+iterations over the prototype, answering many of the exciting questions that are
+currently unanswered.
+
+I would have liked to have looked into Android programming earlier, as it would
+have given a less bare-bones prototype, as I would have been more familiar with
+how the platform does things and what ways to expose functionality.
+
+I would also consider using more real data, perhaps by having the prototype
+import a friend list from Facebook or something similar, although I would have
+to weigh the privacy concerns against the benefits.
 
 \section{Next steps - future work}
 
-In handheld and ubiquitous computing, a user's context is very dynamic. When
-using applications in these settings, a user has much to gain by the effective
-use of implicitly sensed context\cite{dey99:towar}.
+First of all, further work should improve the interface and flow of the
+prototype to make it feel more natural and not keep the user away from
+information they might need. Giving the user more actions to perform on the
+conflict resolution screen should be explored, as an addition to just the remove
+button.
+
+Various user preferences should be explored, particularly when it comes to the
+thresholds for minor and major conflicts, but also as pertains to the importance
+of certain friends. Work should also be done on looking how information from the
+social graph could be used to ``prime'' these values, or make them dynamic and
+unnecessary to set by hand.
+
+One very interesting topic to explore would be making the system more autonomous
+in general, having it recommend times for rescheduling, automatically marking
+friends for removal or other things. More inspiration could be taken from the
+work on semi-autonomous agents, and have the application represent each user by
+an agent which would negotiate on the user's behalf based on data from the
+social graph or preferences set beforehand, as mentioned.
+
+As Dey and Abowd say\cite{dey99:towar}: ``In handheld and ubiquitous computing,
+a user's context is very dynamic. When using applications in these settings,
+user has much to gain by the effective use of implicitly sensed context''
+. Future work should look into the possibilities of using context to aid the
+negotiation process.
 
 \section{Conclusion}
+
+In conclusion, the project has gone through one full design iteration, and has
+as a result raised many exciting new questions. There is a lot more work to be
+done before the application designed during this project is in any way ready to
+be used, but the prototype shows promise.
+
+I believe that the project has only scratched the surface of an area that could
+be very exciting to look at, the merging of the social graph with agent
+technology to create semi-autonomous social agents that can take many decisions
+based on dynamic, social information easily available in networks such as
+Facebook.
 
 \bibliography{report}{}
 \bibliographystyle{plain}
@@ -475,3 +586,5 @@ just for reminders
 \section{Requirement documents}
 
 \end{document}
+
+% LocalWords:  Plandroid
