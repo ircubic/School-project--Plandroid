@@ -94,30 +94,32 @@ availability of the invited participants, as there are currently no good
 solutions for automating schedule conflict resolution and making use of
 information across different social networks to aid this.
 
-The focus of this solution is on mobile platforms, a set of platforms which is
-ill-suited to do data entry on\cite{brown:fourkey}. It would be preferable to
-avoid as much data entry as possible, which could be facilitated by accessing
+The focus of this solution is on mobile platforms, a set of platforms which do
+not work well with manual data entry\cite{brown:fourkey}. It would be preferable
+to avoid as much data entry as possible, which could be facilitated by accessing
 social networks, both for initial data import, or as live data sources. This
 would greatly cut down on the amount of annoying typing that needs to be done on
 the device, as well as minimize data duplication.
 
 \section{Motivation}
 
-The aim of this report is to design a social event planning application, from
-hereon called Plandroid, that focuses on low-key, day-to-day events, utilizes
-already existing social networks to give recommendations, uses the information
-stored in the networks to streamline event creation, and a map-based view. The
-type of events planned are intended to be the personal, small-scale variants,
-like ``we're going to lunch, where do we want to go?'', ``I'm having a movie get
-together, who wants to come'', as opposed to big-scale events like concerts,
-movie showings and similar.
+The aim of this project is to design a social event planning application,
+henceforth called Plandroid, that focuses on the planning of low-key, day-to-day
+events, and utilizes already existing social networks to give recommendations,
+and streamline event creation. The type of events planned are intended to be the
+personal, small-scale variants, like ``we're going to lunch, where do we want to
+go?'', ``I'm having a movie get together, who wants to come'', as opposed to
+big-scale events like concerts, movie showings and similar.
 
 The motivation for this is to explore what benefits, if any, people can get from
 using mobile devices to streamline inherently social day-to-day tasks, and if
 modern tools like the social graph and recommendation systems can improve on how
-they are done, and make friends feel more intimately connected. This report will
-most directly focus on automated schedule negotiation while planning events
-using information gathered from social networks.
+they are done, and make friends feel more intimately connected.
+
+This project started out with the goal of taking a broad, narrow look on the
+design of the entire application, but the goal was changed during its execution
+to focus more narrowly, and thus deeper, on the topic of automating schedule
+negotiation for events, using information gathered from social networks.
 
 \section{Context}
 This report was written in conjunction with the Mobile Applications course at
@@ -148,7 +150,7 @@ well\cite{Beam97automatednegotiations:}.
   peripheral functionality. It does not support showing events on a map
   directly, though you can list an entry from Places as destination, which you
   can click through to for a map.\cite{site:facebook}
-\item[Facebook (places)] Places allows location-based check-ins, and shows the
+\item[Facebook (places)] Facebook places allows location-based check-ins, and shows the
   place on a map, but does not support tighter integration with events.\cite{site:facebook}
 \item[Foursquare] A game that uses location-based check-ins, which gives you
   badges for accomplishing certain tasks or going to certain places. It also
@@ -167,14 +169,15 @@ given:
 
 \begin{description}
 \item[Discovery] In the discovery phase, data is gathered to attempt to get an
-  overview of what's already out there, what problems existing solutions have,
-  what the potential users of the application want, and other useful info.
+  overview of what solutions already exist out there, what problems existing
+  solutions face, what the potential users of the application want, and other
+  information that could be useful in the initial design phase.
 \item[Design] In the design phase, the data gathered so far is processed, and a
   prototype for the application (of any level of completeness) is created from
-  it.
-\item[Evaluation] The design is evaluated through user tests and/or other,
-  heuristic, tests. If these tests indicate that the current prototype is not
-  good enough, we return to the design phase to make another.
+  it, for further evaluation.
+\item[Evaluation] The design is evaluated through user tests and possibly other,
+  heuristic, tests. If these tests indicate problems with the current prototype,
+  we return to the design phase to make another.
 \end{description}
 
 To drive the process along I will be taking a heavily user-centered approach, as
@@ -204,9 +207,9 @@ creating a functional prototype.
 
 \subsubsection{Personas}
 
-As a help for the design process, I have created three personas that describes
-main sections of the user base I'm expecting for my application. These will be a
-help when evaluating requirements and design decisions.
+As a help for the design process, I created three personas that describes main
+sections of the user base I'm expecting for my application. These were a help
+when evaluating requirements and design decisions..
 
 \begin{enumerate}
 \item Richard is a 21-year old college student, studying Economy. He has decent
@@ -232,44 +235,63 @@ help when evaluating requirements and design decisions.
 
 \subsubsection{First prototype}
 
-In the design phase, I created a functional prototype of the application in the
-form of an Android application. This application was hard-coded to be used with
-the following set of scenarios:
+In the design phase, I created a functional prototype of Plandroid in the form
+of a simple Android application. This application was coded to support user
+tests with the following set of scenarios:
 
 \begin{itemize}
-\item The user creates an event with no conflicts, to be used for general
-  commentary on flow, and as baseline.
+\item The user creates an event with no conflicts. This is to be used for
+  general commentary on the flow of the prototype, and as training for the
+  latter scenarios.
 \item The user creates a small, personal event with only a 10\% conflict rate,
-  and has to handle the conflict. Handles the ``minor conflict'' case.
+  and has to handle the conflict. This handles the ``minor conflict'' case.
 \item The user creates a small, personal event with a 50\% conflict rate, and
-  has to handle the conflict. Handles the ``major conflict'' case.
+  has to handle the conflict. This handles the ``major conflict'' case.
 \end{itemize}
 
 The application was then tested with five users as detailed in the following
 section.
 
-\subsubsection{Evaluation}
+\subsection{Evaluation}
 
-In the evaluation phase, I used the prototype created in the Design phase, then
-run them through user tests. These user tests focused on running the users
-through various tasks, observing their behaviour, how intuitive the design is,
-as well as if displayed screens match user's expectations. These tests were
-designed to answer a set of questions determined before the test was created.
+In the evaluation phase, I used the prototype created in the Design phase to run
+through user tests with five users of differing backgrounds. Some were chosen
+from students taking the same course, and others were chosen from a less
+technical background.
+
+These user tests focused on running the users through the various scenarios
+described previously, observing their behaviour when using the application. The
+aim was to see how intuitive the design is, as well as if displayed screens
+match users' expectations.
 
 In addition, informal interview or question sessions were held after these user
-tests to answer any questions left over, as well to gather the user's general
-opinion on the interface, and answer questions that are peripheral to the
-prototype.
+tests to answer any questions not answered through observation or the users'
+comments while doing the tests, as well to gather the user's general opinion on
+the interface and answer questions that are peripheral to the prototype.
 
-The design was then evaluated against the final evaluation criteria.
+As there was no more time left to run another iteration, the information from
+this round of tests was then collated and evaluated against the final evaluation
+criteria.
 
-\section{Final evaluation criteria}
+\subsubsection{Final evaluation criteria}
 
-The final evaluation criteria are based on the user tests on the
-prototype. They're based on how well the user liked the use of social features
-to handle schedule negotiation, if they perceive that it would make the job of
-planning events easier for them. In addition, the design will be evaluated for
-usability and privacy concerns.
+The final evaluation criteria are judged based on the user tests on the
+prototype and are as follows:
+
+\begin{itemize}
+\item The use of social features to handle schedule negotiation must be seen
+  as a useful feature that makes the job of planning events easier and more
+  streamlined.
+\item The interface should be easy to understand, require minimal amounts of
+  descriptive text and training to use, and should look like it belongs on a
+  mobile platform.
+\item Conflict resolution should present useful information, and present the
+  users with the options they need to handle the conflict in a manner that feels
+  comfortable.
+\item The application should be ``smart'' enough to present the user with only
+  the options they might want to use at the time.
+\item The application must not be seen as infringing on the user's privacy.
+\end{itemize}
 
 \chapter{Results}
 
